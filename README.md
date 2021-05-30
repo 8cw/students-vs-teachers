@@ -24,8 +24,7 @@
 - IT Teachers
 - Math Teachers
 - PE Teachers
-
-- Mr Tucker most powerful
+- Mr Tucker most powerful (cannot destroy)
 
 ##### Additional Comments:
 Make it a 32x45 grid (32x32 pixels per grid square) = 1024x1440
