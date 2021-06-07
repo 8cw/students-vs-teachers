@@ -5,6 +5,11 @@
 - Students are the Towers
 - Teachers are the balloons
 
+### Description
+A Tower Defense Simulator where the teachers will come in waves, with different strengths.
+The students will shoot the teachers with guns.
+The school canteen is the upgrade shop.
+
 ##### Towers:
 - Year 9 (bad)
 - Year 10
