@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.705
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "students-vs-teachers", "students-vs-teachers\students-vs-teachers.csproj", "{654750F7-A940-400B-BE6F-A3AFB2BCB9DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "students_vs_teachers", "students-vs-teachers\students_vs_teachers.csproj", "{654750F7-A940-400B-BE6F-A3AFB2BCB9DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

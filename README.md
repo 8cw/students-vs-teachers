@@ -21,6 +21,7 @@ The school canteen is the upgrade shop.
 - Top 6
 
 ##### Balloons:
+- Relief Teachers
 - Social Studies
 - English Teachers
 - Accounting Teachers
