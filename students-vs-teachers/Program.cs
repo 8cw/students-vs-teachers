@@ -1,19 +1,29 @@
-﻿using System;
-using System.Windows.Forms;
+﻿// <summary>
+// The entry-file for the executable.
+// </summary>
+// <copyright file="Program.cs" company="HBHS">
+// Copyright (c) HBHS. All rights reserved.
+// </copyright>
 
-namespace students_vs_teachers
+namespace Students_vs_teachers
 {
-    static class Program
+    using System;
+    using System.Windows.Forms;
+
+    /// <summary>
+    /// Handles the entry-point for our game.
+    /// </summary>
+    internal static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMenu());
+            Application.Run(new FrmMenu());
         }
     }
 }
