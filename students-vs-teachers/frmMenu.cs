@@ -25,9 +25,9 @@ namespace students_vs_teachers
         private PrivateFontCollection gameFonts = new PrivateFontCollection();
 
         /// <summary>
-        /// The oetztyp font.
+        /// The gameria font.
         /// </summary>
-        Font oetztyp;
+        Font gameria;
 
         /// <summary>
         /// Ran when the menu form is created.
@@ -37,17 +37,17 @@ namespace students_vs_teachers
             InitializeComponent();
 
             // create the font data and add it to our font family.
-            byte[] fontData = Properties.Resources.OETZTYP;
+            byte[] fontData = Properties.Resources.GAMERIA;
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
             System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
             uint dummy = 0;
-            gameFonts.AddMemoryFont(fontPtr, Properties.Resources.OETZTYP.Length);
-            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.OETZTYP.Length, IntPtr.Zero, ref dummy);
+            gameFonts.AddMemoryFont(fontPtr, Properties.Resources.GAMERIA.Length);
+            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.GAMERIA.Length, IntPtr.Zero, ref dummy);
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
 
-            oetztyp = new Font(gameFonts.Families[0], 16.0F);
+            gameria = new Font(gameFonts.Families[0], 16.0F);
 
-            lblTitle.Font = oetztyp;
+            lblTitle.Font = gameria;
         }
     }
 }
