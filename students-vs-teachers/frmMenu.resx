@@ -147,7 +147,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblTitle.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="btnPlay.Font" type="System.Drawing.Font, System.Drawing">
     <value>GAMERIA, 12pt</value>
@@ -174,6 +174,67 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnPlay.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnHelp.Font" type="System.Drawing.Font, System.Drawing">
+    <value>GAMERIA, 12pt</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnHelp.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnHelp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>750, 300</value>
+  </data>
+  <data name="btnHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 75</value>
+  </data>
+  <data name="btnHelp.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnHelp.Text" xml:space="preserve">
+    <value>HELP</value>
+  </data>
+  <data name="&gt;&gt;btnHelp.Name" xml:space="preserve">
+    <value>btnHelp</value>
+  </data>
+  <data name="&gt;&gt;btnHelp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnHelp.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnHelp.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnQuit.Font" type="System.Drawing.Font, System.Drawing">
+    <value>GAMERIA, 12pt</value>
+  </data>
+  <data name="btnQuit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnQuit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1020, 300</value>
+  </data>
+  <data name="btnQuit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 75</value>
+  </data>
+  <data name="btnQuit.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnQuit.Text" xml:space="preserve">
+    <value>QUIT</value>
+  </data>
+  <data name="&gt;&gt;btnQuit.Name" xml:space="preserve">
+    <value>btnQuit</value>
+  </data>
+  <data name="&gt;&gt;btnQuit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnQuit.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnQuit.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

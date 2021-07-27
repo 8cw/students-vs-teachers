@@ -1,7 +1,7 @@
 ﻿
 namespace Students_vs_teachers
 {
-    partial class frmGame
+    partial class FrmGame
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Students_vs_teachers
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGame));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGame));
             this.SuspendLayout();
             // 
             // frmGame

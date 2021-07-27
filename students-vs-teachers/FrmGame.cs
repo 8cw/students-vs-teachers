@@ -1,18 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿// <summary>
+// Contains the frmGame form.
+// </summary>
+// <copyright file="FrmGame.cs" company="HBHS">
+// Copyright (c) HBHS. All rights reserved.
+// </copyright>
 
 namespace Students_vs_teachers
 {
-    public partial class frmGame : Form
+    using System.Windows.Forms;
+
+    /// <summary>
+    /// The main game screen.
+    /// </summary>
+    public partial class FrmGame : Form
     {
-        public frmGame()
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FrmGame"/> class.
+        /// Ran when the game form is created.
+        /// </summary>
+        public FrmGame()
         {
             InitializeComponent();
         }

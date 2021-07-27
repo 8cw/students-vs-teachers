@@ -20,18 +20,26 @@ namespace Students_vs_teachers
         /// </summary>
         public FrmMenu()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
-            FontLoader.LoadFont(this.lblTitle, 16.0F);
-            FontLoader.LoadFont(this.btnPlay, 12.0F);
+            FontLoader.LoadFont(lblTitle, 16.0F);
+            FontLoader.LoadFont(btnPlay, 12.0F);
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
         private void btnPlay_Click(object sender, System.EventArgs e)
         {
-            var frmGame = new frmGame();
+            var frmGame = new FrmGame();
             frmGame.ShowDialog();
-            this.Dispose();
-            this.Close();
+            Dispose();
+            Close();
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
+        private void btnQuit_Click(object sender, System.EventArgs e)
+        {
+            Dispose();
+            Close();
         }
     }
 }

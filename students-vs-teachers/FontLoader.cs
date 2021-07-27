@@ -22,12 +22,12 @@ namespace Students_vs_teachers
         /// <summary>
         /// The collection which will hold all our custom fonts.
         /// </summary>
-        private static PrivateFontCollection gameFonts = new PrivateFontCollection();
+        private static readonly PrivateFontCollection GameFonts = new PrivateFontCollection();
 
         /// <summary>
         /// The "gameria" font.
         /// </summary>
-        private static Dictionary<float, Font> gameriaFonts = new Dictionary<float, Font>();
+        private static readonly Dictionary<float, Font> GameriaFonts = new Dictionary<float, Font>();
 
         static FontLoader()
         {
@@ -36,7 +36,7 @@ namespace Students_vs_teachers
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
             System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
             uint dummy = 0;
-            gameFonts.AddMemoryFont(fontPtr, Properties.Resources.GAMERIA.Length);
+            GameFonts.AddMemoryFont(fontPtr, Properties.Resources.GAMERIA.Length);
             AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.GAMERIA.Length, IntPtr.Zero, ref dummy);
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
 
@@ -51,12 +51,12 @@ namespace Students_vs_teachers
         /// <param name="fontSize">The font size for the specified element.</param>
         public static void LoadFont(Control item, float fontSize)
         {
-            if (!gameriaFonts.ContainsKey(fontSize))
+            if (!GameriaFonts.ContainsKey(fontSize))
             {
                 throw new ArgumentException($"Invalid font size `{fontSize}`");
             }
 
-            item.Font = gameriaFonts[fontSize];
+            item.Font = GameriaFonts[fontSize];
         }
 
         // import Graphics Device Interface
@@ -65,7 +65,7 @@ namespace Students_vs_teachers
 
         private static void LoadGameriaFontWithSize(float fontSize)
         {
-            gameriaFonts.Add(fontSize, new Font(gameFonts.Families[0], fontSize));
+            GameriaFonts.Add(fontSize, new Font(GameFonts.Families[0], fontSize));
         }
     }
 }
