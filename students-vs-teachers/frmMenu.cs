@@ -23,7 +23,10 @@ namespace Students_vs_teachers
             InitializeComponent();
 
             FontLoader.LoadFont(lblTitle, 16.0F);
+
             FontLoader.LoadFont(btnPlay, 12.0F);
+            FontLoader.LoadFont(btnHelp, 12.0F);
+            FontLoader.LoadFont(btnQuit, 12.0F);
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
