@@ -1,6 +1,7 @@
-﻿namespace Students_vs_teachers
+﻿
+namespace Students_vs_teachers
 {
-    partial class FrmMenu
+    partial class frmGame
     {
         /// <summary>
         /// Required designer variable.
@@ -28,42 +29,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.btnPlay = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGame));
             this.SuspendLayout();
             // 
-            // lblTitle
-            // 
-            resources.ApplyResources(this.lblTitle, "lblTitle");
-            this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Name = "lblTitle";
-            // 
-            // btnPlay
-            // 
-            resources.ApplyResources(this.btnPlay, "btnPlay");
-            this.btnPlay.Name = "btnPlay";
-            this.btnPlay.UseVisualStyleBackColor = true;
-            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
-            // 
-            // FrmMenu
+            // frmGame
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkRed;
-            this.Controls.Add(this.btnPlay);
-            this.Controls.Add(this.lblTitle);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmMenu";
+            this.Name = "frmGame";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Button btnPlay;
     }
 }

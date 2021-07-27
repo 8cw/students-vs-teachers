@@ -25,5 +25,13 @@ namespace Students_vs_teachers
             FontLoader.LoadFont(this.lblTitle, 16.0F);
             FontLoader.LoadFont(this.btnPlay, 12.0F);
         }
+
+        private void btnPlay_Click(object sender, System.EventArgs e)
+        {
+            var frmGame = new frmGame();
+            frmGame.ShowDialog();
+            this.Dispose();
+            this.Close();
+        }
     }
 }
