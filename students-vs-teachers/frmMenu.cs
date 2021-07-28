@@ -44,5 +44,14 @@ namespace Students_vs_teachers
             Dispose();
             Close();
         }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
+        private void btnHelp_Click(object sender, System.EventArgs e)
+        {
+            var frmHelp = new FrmGame();
+            frmHelp.ShowDialog();
+            Dispose();
+            Close();
+        }
     }
 }
