@@ -30,20 +30,29 @@ namespace Students_vs_teachers
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGame));
+            this.pnlGame = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // frmGame
+            // pnlGame
+            // 
+            resources.ApplyResources(this.pnlGame, "pnlGame");
+            this.pnlGame.Name = "pnlGame";
+            // 
+            // FrmGame
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pnlGame);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmGame";
+            this.Name = "FrmGame";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel pnlGame;
     }
 }
