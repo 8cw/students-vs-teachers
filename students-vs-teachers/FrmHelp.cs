@@ -14,7 +14,11 @@ namespace Students_vs_teachers
     /// </summary>
     public partial class FrmHelp : Form
     {
-        private static readonly HelpPageInfo[] PageInformation = new HelpPageInfo[] { };
+        private static readonly HelpPageInfo[] PageInformation = new HelpPageInfo[]
+        {
+            new HelpPageInfo { Image = Properties.Resources._01_helpImage },
+            new HelpPageInfo { Image = Properties.Resources._02_helpImage },
+        };
 
         private int pageNumber = 0;
 
@@ -28,6 +32,8 @@ namespace Students_vs_teachers
 
             FontLoader.LoadFont(btnNext, 12.0F);
             FontLoader.LoadFont(btnPrevious, 12.0F);
+
+            RefreshHelpImage();
         }
 
         private void RefreshHelpImage()
