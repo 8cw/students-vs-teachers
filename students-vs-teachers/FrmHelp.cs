@@ -14,9 +14,7 @@ namespace Students_vs_teachers
     /// </summary>
     public partial class FrmHelp : Form
     {
-        private static readonly HelpPageInfo[] PageInformation = new[]
-        {
-        };
+        private static readonly HelpPageInfo[] PageInformation = new HelpPageInfo[] { };
 
         private int pageNumber = 0;
 
@@ -27,18 +25,28 @@ namespace Students_vs_teachers
         public FrmHelp()
         {
             InitializeComponent();
+
+            FontLoader.LoadFont(btnNext, 12.0F);
+            FontLoader.LoadFont(btnPrevious, 12.0F);
+        }
+
+        private void RefreshHelpImage()
+        {
+            BackgroundImage = PageInformation[pageNumber].Image;
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
         private void btnNext_Click(object sender, System.EventArgs e)
         {
-            pageNumber = (pageNumber + 1) % 3;
+            pageNumber = (pageNumber + 1) % PageInformation.Length;
+            RefreshHelpImage();
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
         private void btnPrevious_Click(object sender, System.EventArgs e)
         {
-
+            pageNumber = (pageNumber - 1 + PageInformation.Length) % PageInformation.Length;
+            RefreshHelpImage();
         }
     }
 }
