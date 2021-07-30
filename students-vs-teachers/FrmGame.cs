@@ -16,11 +16,9 @@ namespace Students_vs_teachers
     /// </summary>
     public partial class FrmGame : Form
     {
-        private const int GRID_LENGTH = 16;
-        private const int GAME_X_LENGTH = 1920;
-        private const int GAME_Y_LENGTH = 1024;
+        private const int GRID_LENGTH = 32;
 
-        private readonly Grid[] grid = new Grid[7680];
+        private readonly Grid[] grid = new Grid[1920];
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FrmGame"/> class.
@@ -39,10 +37,10 @@ namespace Students_vs_teachers
         /// </summary>
         private void CreateGrid()
         {
-            for (var i = 0; i < (GAME_X_LENGTH / GRID_LENGTH) * (GAME_Y_LENGTH / GRID_LENGTH); i += 1)
+            for (var i = 0; i < (pnlGame.Size.Width / GRID_LENGTH) * (pnlGame.Size.Height / GRID_LENGTH); i += 1)
             {
-                var x = i % (GAME_X_LENGTH / GRID_LENGTH);
-                var y = (int)Math.Floor((double)(i / (GAME_X_LENGTH / GRID_LENGTH)));
+                var x = i % (pnlGame.Size.Width / GRID_LENGTH);
+                var y = (int)Math.Floor((double)(i / (pnlGame.Size.Width / GRID_LENGTH)));
 
                 var gridX = x * GRID_LENGTH;
                 var gridY = y * GRID_LENGTH;
@@ -50,8 +48,10 @@ namespace Students_vs_teachers
                 var gridImage = new PictureBox();
                 gridImage.Size = new Size(GRID_LENGTH, GRID_LENGTH);
                 gridImage.Location = new Point(gridX, gridY);
+                gridImage.Visible = true;
+                gridImage.BackColor = ((i + y) % 2) == 0 ? Color.Green : Color.Red;
 
-                // Controls.Add(gridImage);
+                pnlGame.Controls.Add(gridImage);
                 grid[i] = new Grid(i, gridImage);
             }
         }
