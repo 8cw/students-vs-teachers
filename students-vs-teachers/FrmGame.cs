@@ -27,6 +27,14 @@ namespace Students_vs_teachers
         public FrmGame()
         {
             InitializeComponent();
+
+            // add "gameria" font to buttons
+            FontLoader.LoadFont(btnToggleState, 12.0F);
+            FontLoader.LoadFont(btnSettings, 12.0F);
+            FontLoader.LoadFont(btnHelp, 12.0F);
+            FontLoader.LoadFont(lblMoney, 16.0F);
+            FontLoader.LoadFont(lblLives, 16.0F);
+
             Console.WriteLine(grid);
             CreateGrid();
             Console.WriteLine(grid);
