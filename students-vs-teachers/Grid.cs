@@ -5,10 +5,12 @@
 // Copyright (c) HBHS. All rights reserved.
 // </copyright>
 
+using System.Windows.Forms;
+
 /// <summary>
 /// A grid in the game.
 /// </summary>
-internal readonly struct Grid
+internal struct Grid
 {
     /// <summary>
     /// The grid ID.
@@ -16,12 +18,19 @@ internal readonly struct Grid
     public readonly int Id;
 
     /// <summary>
+    /// The image associated with this grid.
+    /// </summary>
+    public readonly PictureBox GridImage;
+
+    /// <summary>
     /// Initializes a new instance of the <see cref="Grid"/> struct.
     /// </summary>
     /// <param name="id">The id of the grid.</param>
-    public Grid(int id)
+    /// <param name="gridImage"> The image of the grid.</param>
+    public Grid(int id, PictureBox gridImage)
     {
         Id = id;
+        GridImage = gridImage;
     }
 
     /// <summary>

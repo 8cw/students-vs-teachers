@@ -8,6 +8,7 @@
 namespace Students_vs_teachers
 {
     using System;
+    using System.Drawing;
     using System.Windows.Forms;
 
     /// <summary>
@@ -40,7 +41,18 @@ namespace Students_vs_teachers
         {
             for (var i = 0; i < (GAME_X_LENGTH / GRID_LENGTH) * (GAME_Y_LENGTH / GRID_LENGTH); i += 1)
             {
-                grid[i] = new Grid(i);
+                var x = i % (GAME_X_LENGTH / GRID_LENGTH);
+                var y = (int)Math.Floor((double)(i / (GAME_X_LENGTH / GRID_LENGTH)));
+
+                var gridX = x * GRID_LENGTH;
+                var gridY = y * GRID_LENGTH;
+
+                var gridImage = new PictureBox();
+                gridImage.Size = new Size(GRID_LENGTH, GRID_LENGTH);
+                gridImage.Location = new Point(gridX, gridY);
+
+                // Controls.Add(gridImage);
+                grid[i] = new Grid(i, gridImage);
             }
         }
     }
