@@ -40,8 +40,9 @@ namespace Students_vs_teachers
             AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.GAMERIA.Length, IntPtr.Zero, ref dummy);
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
 
-            LoadGameriaFontWithSize(16.0F);
             LoadGameriaFontWithSize(12.0F);
+            LoadGameriaFontWithSize(16.0F);
+            LoadGameriaFontWithSize(24.0F);
         }
 
         /// <summary>

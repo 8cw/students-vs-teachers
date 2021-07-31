@@ -22,7 +22,7 @@ namespace Students_vs_teachers
         {
             InitializeComponent();
 
-            FontLoader.LoadFont(lblTitle, 16.0F);
+            FontLoader.LoadFont(lblTitle, 24.0F);
 
             FontLoader.LoadFont(btnPlay, 12.0F);
             FontLoader.LoadFont(btnHelp, 12.0F);
