@@ -19,6 +19,7 @@ namespace Students_vs_teachers
         private const int GRID_LENGTH = 32;
 
         private readonly Grid[] grid = new Grid[1920];
+        private uint round = 0;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FrmGame"/> class.
@@ -35,9 +36,7 @@ namespace Students_vs_teachers
             FontLoader.LoadFont(lblMoney, 16.0F);
             FontLoader.LoadFont(lblLives, 16.0F);
 
-            Console.WriteLine(grid);
             CreateGrid();
-            Console.WriteLine(grid);
         }
 
         /// <summary>
@@ -62,6 +61,15 @@ namespace Students_vs_teachers
                 pnlGame.Controls.Add(gridImage);
                 grid[i] = new Grid(i, gridImage);
             }
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            tmrGameTick.Enabled = false;
+
+            var frmHelp = new FrmHelp();
+            frmHelp.ShowDialog();
         }
     }
 }

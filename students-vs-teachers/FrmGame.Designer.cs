@@ -29,20 +29,23 @@ namespace Students_vs_teachers
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGame));
             this.pnlGame = new System.Windows.Forms.Panel();
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.btnToggleState = new System.Windows.Forms.Button();
-            this.btnSettings = new System.Windows.Forms.Button();
-            this.btnHelp = new System.Windows.Forms.Button();
-            this.pnlTowers = new System.Windows.Forms.Panel();
-            this.lblMoney = new System.Windows.Forms.Label();
             this.lblLives = new System.Windows.Forms.Label();
+            this.lblMoney = new System.Windows.Forms.Label();
+            this.pnlTowers = new System.Windows.Forms.Panel();
+            this.btnHelp = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
+            this.btnToggleState = new System.Windows.Forms.Button();
+            this.tmrGameTick = new System.Windows.Forms.Timer(this.components);
             this.pnlMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlGame
             // 
+            this.pnlGame.BackgroundImage = global::Students_vs_teachers.Properties.Resources._01_map;
             resources.ApplyResources(this.pnlGame, "pnlGame");
             this.pnlGame.Name = "pnlGame";
             // 
@@ -57,12 +60,28 @@ namespace Students_vs_teachers
             resources.ApplyResources(this.pnlMenu, "pnlMenu");
             this.pnlMenu.Name = "pnlMenu";
             // 
-            // btnToggleState
+            // lblLives
             // 
-            resources.ApplyResources(this.btnToggleState, "btnToggleState");
-            this.btnToggleState.Name = "btnToggleState";
-            this.btnToggleState.TabStop = false;
-            this.btnToggleState.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.lblLives, "lblLives");
+            this.lblLives.Name = "lblLives";
+            // 
+            // lblMoney
+            // 
+            resources.ApplyResources(this.lblMoney, "lblMoney");
+            this.lblMoney.Name = "lblMoney";
+            // 
+            // pnlTowers
+            // 
+            resources.ApplyResources(this.pnlTowers, "pnlTowers");
+            this.pnlTowers.Name = "pnlTowers";
+            // 
+            // btnHelp
+            // 
+            resources.ApplyResources(this.btnHelp, "btnHelp");
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.TabStop = false;
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // btnSettings
             // 
@@ -71,27 +90,17 @@ namespace Students_vs_teachers
             this.btnSettings.TabStop = false;
             this.btnSettings.UseVisualStyleBackColor = true;
             // 
-            // btnHelp
+            // btnToggleState
             // 
-            resources.ApplyResources(this.btnHelp, "btnHelp");
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.TabStop = false;
-            this.btnHelp.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.btnToggleState, "btnToggleState");
+            this.btnToggleState.Name = "btnToggleState";
+            this.btnToggleState.TabStop = false;
+            this.btnToggleState.UseVisualStyleBackColor = true;
             // 
-            // pnlTowers
+            // tmrGameTick
             // 
-            resources.ApplyResources(this.pnlTowers, "pnlTowers");
-            this.pnlTowers.Name = "pnlTowers";
-            // 
-            // lblMoney
-            // 
-            resources.ApplyResources(this.lblMoney, "lblMoney");
-            this.lblMoney.Name = "lblMoney";
-            // 
-            // lblLives
-            // 
-            resources.ApplyResources(this.lblLives, "lblLives");
-            this.lblLives.Name = "lblLives";
+            this.tmrGameTick.Enabled = true;
+            this.tmrGameTick.Interval = 33;
             // 
             // FrmGame
             // 
@@ -118,5 +127,6 @@ namespace Students_vs_teachers
         private System.Windows.Forms.Panel pnlTowers;
         private System.Windows.Forms.Label lblMoney;
         private System.Windows.Forms.Label lblLives;
+        private System.Windows.Forms.Timer tmrGameTick;
     }
 }
