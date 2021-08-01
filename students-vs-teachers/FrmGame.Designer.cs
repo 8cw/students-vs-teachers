@@ -31,7 +31,6 @@ namespace Students_vs_teachers
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGame));
-            this.pnlGame = new System.Windows.Forms.Panel();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.lblLives = new System.Windows.Forms.Label();
             this.lblMoney = new System.Windows.Forms.Label();
@@ -40,14 +39,9 @@ namespace Students_vs_teachers
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnToggleState = new System.Windows.Forms.Button();
             this.tmrGameTick = new System.Windows.Forms.Timer(this.components);
+            this.pnlGame = new System.Windows.Forms.Panel();
             this.pnlMenu.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnlGame
-            // 
-            this.pnlGame.BackgroundImage = global::Students_vs_teachers.Properties.Resources._01_map;
-            resources.ApplyResources(this.pnlGame, "pnlGame");
-            this.pnlGame.Name = "pnlGame";
             // 
             // pnlMenu
             // 
@@ -101,6 +95,13 @@ namespace Students_vs_teachers
             // 
             this.tmrGameTick.Enabled = true;
             this.tmrGameTick.Interval = 33;
+            this.tmrGameTick.Tick += new System.EventHandler(this.tmrGameTick_Tick);
+            // 
+            // pnlGame
+            // 
+            this.pnlGame.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            resources.ApplyResources(this.pnlGame, "pnlGame");
+            this.pnlGame.Name = "pnlGame";
             // 
             // FrmGame
             // 

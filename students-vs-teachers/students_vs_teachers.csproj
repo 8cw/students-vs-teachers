@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enemy.cs" />
     <Compile Include="FontLoader.cs" />
     <Compile Include="FrmGame.cs">
       <SubType>Form</SubType>
@@ -158,6 +159,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\red_box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher01.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
