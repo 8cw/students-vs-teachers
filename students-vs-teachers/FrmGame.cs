@@ -56,7 +56,8 @@ namespace Students_vs_teachers
                 gridImage.Size = new Size(GRID_LENGTH, GRID_LENGTH);
                 gridImage.Location = new Point(gridX, gridY);
                 gridImage.Visible = true;
-                gridImage.BackColor = ((i + y) % 2) == 0 ? Color.Green : Color.Red;
+                gridImage.BackColor = Color.Transparent;
+                gridImage.Image = ((i + y) % 2) == 0 ? Properties.Resources.blue_box : Properties.Resources.red_box;
 
                 pnlGame.Controls.Add(gridImage);
                 grid[i] = new Grid(i, gridImage);
