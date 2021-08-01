@@ -32,6 +32,7 @@ namespace Students_vs_teachers
 
             FontLoader.LoadFont(btnNext, 12.0F);
             FontLoader.LoadFont(btnPrevious, 12.0F);
+            FontLoader.LoadFont(btnHome, 12.0F);
 
             RefreshHelpImage();
         }
@@ -53,6 +54,13 @@ namespace Students_vs_teachers
         {
             pageNumber = (pageNumber - 1 + PageInformation.Length) % PageInformation.Length;
             RefreshHelpImage();
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
+        private void btnHome_Click(object sender, System.EventArgs e)
+        {
+            Dispose();
+            Close();
         }
     }
 }
