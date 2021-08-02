@@ -193,7 +193,7 @@
     <value>2</value>
   </data>
   <data name="btnHome.Text" xml:space="preserve">
-    <value>RETURN TO MENU</value>
+    <value>RETURN TO</value>
   </data>
   <data name="&gt;&gt;btnHome.Name" xml:space="preserve">
     <value>btnHome</value>

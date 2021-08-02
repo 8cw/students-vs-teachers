@@ -52,7 +52,7 @@ namespace Students_vs_teachers
         {
             Visible = false;
 
-            var frmHelp = new FrmHelp();
+            var frmHelp = new FrmHelp(new FrmHelpConstructor { ReturnButtonText = "Menu" });
             frmHelp.ShowDialog();
 
             Visible = true;
