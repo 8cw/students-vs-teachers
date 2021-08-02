@@ -79,6 +79,7 @@
     <Compile Include="FrmHelp.Designer.cs">
       <DependentUpon>FrmHelp.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmHelpConstructor.cs" />
     <Compile Include="frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>

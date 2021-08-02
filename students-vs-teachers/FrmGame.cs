@@ -137,7 +137,7 @@ namespace Students_vs_teachers
             tmrGameTick.Enabled = false;
             Visible = false;
 
-            var frmHelp = new FrmHelp();
+            var frmHelp = new FrmHelp(new FrmHelpConstructor { ReturnButtonText = "Game" });
             frmHelp.ShowDialog();
 
             // resume game

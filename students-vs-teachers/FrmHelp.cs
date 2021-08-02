@@ -20,13 +20,15 @@ namespace Students_vs_teachers
             new HelpPageInfo { Image = Properties.Resources._02_helpImage },
         };
 
+        private FrmHelpConstructor data;
         private int pageNumber = 0;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FrmHelp"/> class.
         /// Creates the help menu.
         /// </summary>
-        public FrmHelp()
+        /// <param name="data">The data associated with the construction of this help form.</param>
+        public FrmHelp(FrmHelpConstructor data)
         {
             InitializeComponent();
 
@@ -34,7 +36,7 @@ namespace Students_vs_teachers
             FontLoader.LoadFont(btnPrevious, 12.0F);
             FontLoader.LoadFont(btnHome, 12.0F);
 
-            RefreshHelpImage();
+            this.data = data;
         }
 
         private void RefreshHelpImage()
@@ -61,6 +63,12 @@ namespace Students_vs_teachers
         {
             Dispose();
             Close();
+        }
+
+        private void FrmHelp_Load(object sender, System.EventArgs e)
+        {
+            btnHome.Text += $" {data.ReturnButtonText}";
+            RefreshHelpImage();
         }
     }
 }
