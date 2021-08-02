@@ -27,6 +27,8 @@ namespace Students_vs_teachers
         private uint round = 0;
         private uint enemySpawnCount = 0;
 
+        private Timer tmrGameTick = new Timer();
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FrmGame"/> class.
         /// Ran when the game form is created.
@@ -34,6 +36,11 @@ namespace Students_vs_teachers
         public FrmGame()
         {
             InitializeComponent();
+
+            // create "tmrGameTick"
+            tmrGameTick.Enabled = true;
+            tmrGameTick.Interval = 33;
+            tmrGameTick.Tick += new System.EventHandler(tmrGameTick_Tick);
 
             // add "gameria" font to buttons
             FontLoader.LoadFont(btnToggleState, 12.0F);

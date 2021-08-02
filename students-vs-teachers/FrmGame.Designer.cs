@@ -29,7 +29,6 @@ namespace Students_vs_teachers
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGame));
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.lblLives = new System.Windows.Forms.Label();
@@ -38,7 +37,6 @@ namespace Students_vs_teachers
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnToggleState = new System.Windows.Forms.Button();
-            this.tmrGameTick = new System.Windows.Forms.Timer(this.components);
             this.pnlGame = new System.Windows.Forms.Panel();
             this.pnlMenu.SuspendLayout();
             this.SuspendLayout();
@@ -91,12 +89,6 @@ namespace Students_vs_teachers
             this.btnToggleState.TabStop = false;
             this.btnToggleState.UseVisualStyleBackColor = true;
             // 
-            // tmrGameTick
-            // 
-            this.tmrGameTick.Enabled = true;
-            this.tmrGameTick.Interval = 33;
-            this.tmrGameTick.Tick += new System.EventHandler(this.tmrGameTick_Tick);
-            // 
             // pnlGame
             // 
             this.pnlGame.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -105,8 +97,9 @@ namespace Students_vs_teachers
             // 
             // FrmGame
             // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ControlBox = false;
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.pnlGame);
             this.DoubleBuffered = true;
@@ -128,6 +121,5 @@ namespace Students_vs_teachers
         private System.Windows.Forms.Panel pnlTowers;
         private System.Windows.Forms.Label lblMoney;
         private System.Windows.Forms.Label lblLives;
-        private System.Windows.Forms.Timer tmrGameTick;
     }
 }
