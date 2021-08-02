@@ -22,12 +22,26 @@ namespace Students_vs_teachers
 
         private readonly Grid[] grid = new Grid[1920];
         private readonly int[] enemyPath = { 1020, 1021, 1022, 1023, 1024, 1025, 1026, 1027, 1028, 1029, 1030, 970, 910, 850, 790, 730, 670, 610, 550, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 561, 621, 681, 741, 801, 861, 921, 981, 1041, 1101, 1161, 1221, 1222, 1223, 1224, 1225, 1226, 1227, 1228, 1229, 1230, 1231, 1232, 1233, 1234, 1235, 1236, 1237, 1238, 1178, 1118, 1058, 998, 938, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899 };
+        private readonly Dictionary<int, TowerInfo> towerCosts = new Dictionary<int, TowerInfo>()
+        {
+            { 0, new TowerInfo { Name = "Year 9", Cost = 100, Damage = 1, AttackInterval = 1F, TowerImage = Properties.Resources.tower00 } },
+            { 1, new TowerInfo { Name = "Year 10", Cost = 250, Damage = 2, AttackInterval = 0.8F, TowerImage = Properties.Resources.tower01 } },
+            { 2, new TowerInfo { Name = "Year 11", Cost = 600, Damage = 6, AttackInterval = 2F, TowerImage = Properties.Resources.tower02 } },
+            { 3, new TowerInfo { Name = "Year 13", Cost = 800, Damage = 8, AttackInterval = 1.6F, TowerImage = Properties.Resources.tower03 } },
+            { 4, new TowerInfo { Name = "Year 12", Cost = 1000, Damage = 12, AttackInterval = 1.2F, TowerImage = Properties.Resources.tower04 } },
+            { 5, new TowerInfo { Name = "Prefect", Cost = 2000, Damage = 18, AttackInterval = 1F, TowerImage = Properties.Resources.tower05 } },
+            { 6, new TowerInfo { Name = "Head Boy", Cost = 2500, Damage = 20, AttackInterval = 0.7F, TowerImage = Properties.Resources.tower06 } },
+            { 7, new TowerInfo { Name = "Top 6", Cost = 4000, Damage = 40, AttackInterval = 3F, TowerImage = Properties.Resources.tower07 } },
+        };
 
         private List<Enemy> activeEnemies = new List<Enemy>();
-        private uint round = 0;
+        private int round = 0;
         private uint enemySpawnCount = 0;
+        private int? towerPlacing = null;
+        private int money = 9999;
 
         private Timer tmrGameTick = new Timer();
+        private Timer tmrTowerPlacement = new Timer();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FrmGame"/> class.
@@ -42,12 +56,21 @@ namespace Students_vs_teachers
             tmrGameTick.Interval = 33;
             tmrGameTick.Tick += new System.EventHandler(tmrGameTick_Tick);
 
+            // create "tmrTowerPlacement"
+            tmrTowerPlacement.Enabled = false;
+            tmrTowerPlacement.Interval = 1;
+            tmrTowerPlacement.Tick += new EventHandler(tmrTowerPlacement_Tick);
+
             // add "gameria" font to buttons
             FontLoader.LoadFont(btnToggleState, 12.0F);
             FontLoader.LoadFont(btnSettings, 12.0F);
             FontLoader.LoadFont(btnHelp, 12.0F);
+
+            // add "gameria" font to labels
             FontLoader.LoadFont(lblMoney, 16.0F);
             FontLoader.LoadFont(lblLives, 16.0F);
+            FontLoader.LoadFont(lblRound, 16.0F);
+            FontLoader.LoadFont(lblTowers, 16.0F);
 
             CreateGrid();
         }
@@ -109,12 +132,12 @@ namespace Students_vs_teachers
                 var gridImage = new PictureBox();
                 gridImage.Size = new Size(GRID_LENGTH, GRID_LENGTH);
                 gridImage.Location = gridCoordinate;
-                gridImage.Visible = true;
+                gridImage.Visible = false;
                 gridImage.BackColor = Color.Transparent;
 
-                // gridImage.Image = ((i + y) % 2) == 0 ? Properties.Resources.blue_box : Properties.Resources.red_box;
+                gridImage.Image = Properties.Resources.blue_box;
 
-                // pnlGame.Controls.Add(gridImage);
+                pnlGame.Controls.Add(gridImage);
                 grid[i] = new Grid(i, gridImage);
 
                 // TEMP VIEW FOR LABELS
@@ -131,9 +154,19 @@ namespace Students_vs_teachers
             }
         }
 
-        private void UpdateEnemyLocation(PictureBox enemy, Point location)
+        private void PlaceTower(int towerId)
         {
-            enemy.Location = location;
+            var tower = towerCosts[towerId];
+
+            // validate user has enough money
+            if (money < tower.Cost)
+            {
+                return;
+            }
+
+            // start place tower
+            towerPlacing = towerId;
+            tmrTowerPlacement.Start();
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
@@ -187,6 +220,102 @@ namespace Students_vs_teachers
                 {
                     newEnemy.EnemyImage.Location = newEnemyLocation;
                 }
+            }
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
+        private void tmrTowerPlacement_Tick(object sender, EventArgs e)
+        {
+            var x = MousePosition.X / GRID_LENGTH;
+            var y = MousePosition.Y / GRID_LENGTH;
+            var gridId = x + (y * (pnlGame.Width / GRID_LENGTH));
+
+            // clear old placed
+            foreach (var gridItem in grid)
+            {
+                // check we are not hiding the currently selected grid
+                if (gridId < grid.Length && grid[gridId].Id == gridItem.Id)
+                {
+                    // check if we should display this grid
+                    if (!gridItem.GridImage.Visible)
+                    {
+                        gridItem.GridImage.Visible = true;
+                        gridItem.GridImage.BackgroundImage = towerCosts[towerPlacing ?? 0].TowerImage;
+
+                        // make it red if we are placing on already placed tower:
+                        // todo
+                        if (gridItem.GridImage.Image != Properties.Resources.blue_box)
+                        {
+                            gridItem.GridImage.Image = Properties.Resources.blue_box;
+                        }
+                    }
+
+                    continue;
+                }
+
+                // hide (we are no longer selecting this grid square)
+                if (gridItem.GridImage.Visible)
+                {
+                    gridItem.GridImage.Visible = false;
+                }
+            }
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
+        private void pbTower0_Click(object sender, EventArgs e)
+        {
+            PlaceTower(0);
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
+        private void pbTower1_Click(object sender, EventArgs e)
+        {
+            PlaceTower(1);
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
+        private void pbTower2_Click(object sender, EventArgs e)
+        {
+            PlaceTower(2);
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
+        private void pbTower3_Click(object sender, EventArgs e)
+        {
+            PlaceTower(3);
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
+        private void pbTower4_Click(object sender, EventArgs e)
+        {
+            PlaceTower(4);
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
+        private void pbTower5_Click(object sender, EventArgs e)
+        {
+            PlaceTower(5);
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
+        private void pbTower6_Click(object sender, EventArgs e)
+        {
+            PlaceTower(6);
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
+        private void pbTower7_Click(object sender, EventArgs e)
+        {
+            PlaceTower(7);
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
+        private void pnlGame_MouseClick(object sender, MouseEventArgs e)
+        {
+            // handle tower placement
+            if (!towerPlacing.HasValue)
+            {
+                return;
             }
         }
     }
