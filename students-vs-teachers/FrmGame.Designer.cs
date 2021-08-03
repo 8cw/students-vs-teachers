@@ -197,7 +197,6 @@ namespace Students_vs_teachers
             this.pnlGame.BackColor = System.Drawing.SystemColors.ActiveCaption;
             resources.ApplyResources(this.pnlGame, "pnlGame");
             this.pnlGame.Name = "pnlGame";
-            this.pnlGame.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnlGame_MouseClick);
             // 
             // FrmGame
             // 

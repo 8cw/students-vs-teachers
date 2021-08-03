@@ -22,6 +22,11 @@ namespace Students_vs_teachers
 
         private readonly Grid[] grid = new Grid[1920];
         private readonly int[] enemyPath = { 1020, 1021, 1022, 1023, 1024, 1025, 1026, 1027, 1028, 1029, 1030, 970, 910, 850, 790, 730, 670, 610, 550, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 561, 621, 681, 741, 801, 861, 921, 981, 1041, 1101, 1161, 1221, 1222, 1223, 1224, 1225, 1226, 1227, 1228, 1229, 1230, 1231, 1232, 1233, 1234, 1235, 1236, 1237, 1238, 1178, 1118, 1058, 998, 938, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899 };
+
+        /// <summary>
+        /// The grids the user cannot place onto. These are for miscellaneous decorations.
+        /// </summary>
+        private readonly int[] blacklistedGridIds = { };
         private readonly Dictionary<int, TowerInfo> towerCosts = new Dictionary<int, TowerInfo>()
         {
             { 0, new TowerInfo { Name = "Year 9", Cost = 100, Damage = 1, AttackInterval = 1F, TowerImage = Properties.Resources.tower00 } },
@@ -38,6 +43,11 @@ namespace Students_vs_teachers
         private int round = 0;
         private uint enemySpawnCount = 0;
         private int? towerPlacing = null;
+
+        /// <summary>
+        /// A HashSet that contains all the grid IDs that the user has placed something down on.
+        /// </summary>
+        private HashSet<int> gridIdsConsumed = new HashSet<int>();
         private int money = 9999;
 
         private Timer tmrGameTick = new Timer();
@@ -134,8 +144,8 @@ namespace Students_vs_teachers
                 gridImage.Location = gridCoordinate;
                 gridImage.Visible = false;
                 gridImage.BackColor = Color.Transparent;
-
                 gridImage.Image = Properties.Resources.blue_box;
+                gridImage.MouseClick += new MouseEventHandler(pnlGame_MouseClick);
 
                 pnlGame.Controls.Add(gridImage);
                 grid[i] = new Grid(i, gridImage);
@@ -144,7 +154,7 @@ namespace Students_vs_teachers
                 var gridLabel = new Label();
                 gridLabel.Size = new Size(GRID_LENGTH, GRID_LENGTH);
                 gridLabel.Location = gridCoordinate;
-                gridLabel.Visible = new System.Collections.Generic.HashSet<int>(enemyPath).Contains(i);
+                gridLabel.Visible = enemyPath.Contains(i);
                 gridLabel.Text = $"{i}";
 
                 // gridLabel.BackColor = ((i + y) % 2) == 0 ? Color.Blue : Color.Red;
@@ -223,12 +233,31 @@ namespace Students_vs_teachers
             }
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
-        private void tmrTowerPlacement_Tick(object sender, EventArgs e)
+        /// <summary>
+        /// Retrieves the current grid the user is hovering over.
+        /// </summary>
+        /// <returns>The grid Id the user is hovering over.</returns>
+        private int GetCurrentHoveredGrid()
         {
             var x = MousePosition.X / GRID_LENGTH;
             var y = MousePosition.Y / GRID_LENGTH;
-            var gridId = x + (y * (pnlGame.Width / GRID_LENGTH));
+            return x + (y * (pnlGame.Width / GRID_LENGTH));
+        }
+
+        /// <summary>
+        /// Removes some money from a user and updates the money label.
+        /// </summary>
+        /// <param name="amount">The amount of money to remove.</param>
+        private void SubtractMoney(int amount)
+        {
+            money -= amount;
+            lblMoney.Text = $"Money: {money}";
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
+        private void tmrTowerPlacement_Tick(object sender, EventArgs e)
+        {
+            var gridId = GetCurrentHoveredGrid();
 
             // clear old placed
             foreach (var gridItem in grid)
@@ -254,7 +283,7 @@ namespace Students_vs_teachers
                 }
 
                 // hide (we are no longer selecting this grid square)
-                if (gridItem.GridImage.Visible)
+                if (gridItem.GridImage.Visible && !gridIdsConsumed.Contains(gridItem.Id))
                 {
                     gridItem.GridImage.Visible = false;
                 }
@@ -317,6 +346,28 @@ namespace Students_vs_teachers
             {
                 return;
             }
+
+            // check that we are not hovering over a grid already have an item
+            // check that we are not placing on an invalid grid
+            var gridId = GetCurrentHoveredGrid();
+            if (enemyPath.Contains(gridId) || blacklistedGridIds.Contains(gridId) || gridIdsConsumed.Contains(gridId))
+            {
+                return;
+            }
+
+            // place tower
+            var towerInfo = towerCosts[towerPlacing ?? 0];
+
+            grid[gridId].GridImage.BackgroundImage = towerInfo.TowerImage;
+            grid[gridId].GridImage.Visible = true;
+            gridIdsConsumed.Add(gridId);
+
+            // subtract money
+            SubtractMoney(towerInfo.Cost);
+
+            // set placing tower to null
+            towerPlacing = null;
+            tmrTowerPlacement.Stop();
         }
     }
 }
