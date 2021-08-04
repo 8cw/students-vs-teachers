@@ -112,9 +112,9 @@ namespace Students_vs_teachers
         }
 
         /// <summary>
-        /// Retrieves the location an enemy should be given the distance they have travelled.
+        /// Retrieves the location an enemy should be given the distance they have traveled.
         /// </summary>
-        /// <param name="enemyDistance">An integer representing how many units the enemy has travelled.</param>
+        /// <param name="enemyDistance">An integer representing how many units the enemy has traveled.</param>
         /// <returns>A point representing where the enemy should be.</returns>
         private Point GetEnemyLocation(int enemyDistance)
         {
