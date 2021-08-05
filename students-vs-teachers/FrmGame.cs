@@ -142,13 +142,13 @@ namespace Students_vs_teachers
         }
 
         /// <summary>
-        /// Retrieves the location an enemy should be given the distance they have traveled.
+        /// Retrieves the path the enemy is currently travelling on.
         /// </summary>
-        /// <param name="enemyDistance">An integer representing how many units the enemy has traveled.</param>
-        /// <returns>A point representing where the enemy should be.</returns>
-        private Point? GetEnemyLocation(int enemyDistance)
+        /// <param name="enemy">The enemy to retrieve the path for.</param>
+        /// <returns>The path the enemy is travelling on, or null if the enemy is not travelling on a path.</returns>
+        private PathOrientation? GetEnemyPath(Enemy enemy)
         {
-            var tileNum = enemyDistance / GRID_LENGTH;
+            var tileNum = enemy.EnemyDistance / GRID_LENGTH;
 
             var tilesTravelled = 0;
             for (var i = 0; i < enemyPath.Length; i += 1)
@@ -158,7 +158,133 @@ namespace Students_vs_teachers
                 if (path.TileIds.Length > (tileNum - tilesTravelled))
                 {
                     // somewhere in this list is the element we want
-                    return GetMapCoordinateForId(path.TileIds[tileNum - tilesTravelled]);
+                    return path;
+                }
+                else
+                {
+                    // must be next path sequence.
+                    tilesTravelled += path.TileIds.Length;
+                }
+            }
+
+            // player is out of bounds.
+            return null;
+        }
+
+        /// <summary>
+        /// Retrieves the next path the enemy is going to travel on.
+        /// </summary>
+        /// <param name="enemy">The enemy.</param>
+        /// <returns>The path the enemy will travel on, or null if they are not travelling on a path.</returns>
+        private PathOrientation? GetEnemyNextPath(Enemy enemy)
+        {
+            var tileNum = enemy.EnemyDistance / GRID_LENGTH;
+
+            var tilesTravelled = 0;
+            for (var i = 0; i < enemyPath.Length; i += 1)
+            {
+                var path = enemyPath[i];
+
+                if (path.TileIds.Length > (tileNum - tilesTravelled))
+                {
+                    // somewhere in this list is the element we want
+                    if (path.TileIds.Length > (tileNum - tilesTravelled + 1))
+                    {
+                        // case one: the next tile is in our current path
+                        return path;
+                    }
+                    else if (enemyPath.Length > (i + 1))
+                    {
+                        // case two: the next tile is in our next path
+                        return enemyPath[i + 1];
+                    }
+                }
+                else
+                {
+                    // must be next path sequence.
+                    tilesTravelled += path.TileIds.Length;
+                }
+            }
+
+            // player is at the last tile.
+            return null;
+        }
+
+        /// <summary>
+        /// Retrieves the ID of the next tile an enemy is travelling to.
+        /// </summary>
+        /// <param name="enemy">The enemy.</param>
+        /// <returns>The ID of the tile the enemy is travelling to, or null if they have completed the game.</returns>
+        private int? GetEnemyNextTileId(Enemy enemy)
+        {
+            var tileNum = enemy.EnemyDistance / GRID_LENGTH;
+
+            var tilesTravelled = 0;
+            for (var i = 0; i < enemyPath.Length; i += 1)
+            {
+                var path = enemyPath[i];
+
+                if (path.TileIds.Length > (tileNum - tilesTravelled))
+                {
+                    // somewhere in this list is the element we want
+                    if (path.TileIds.Length > (tileNum - tilesTravelled + 1))
+                    {
+                        // case one: the next tile is in our current path
+                        return path.TileIds[tileNum - tilesTravelled + 1];
+                    }
+                    else if (enemyPath.Length > (i + 1))
+                    {
+                        // case two: the next tile is in our next path
+                        return enemyPath[i + 1].TileIds[0];
+                    }
+                }
+                else
+                {
+                    // must be next path sequence.
+                    tilesTravelled += path.TileIds.Length;
+                }
+            }
+
+            // player is at the last tile.
+            return null;
+        }
+
+        /// <summary>
+        /// Retrieves the location an enemy should be given the distance they have traveled.
+        /// </summary>
+        /// <param name="enemy">The enemy.</param>
+        /// <returns>A point representing where the enemy should be.</returns>
+        private Point? GetEnemyLocation(Enemy enemy)
+        {
+            var tileNum = enemy.EnemyDistance / GRID_LENGTH;
+            double tilePercentage = ((double)enemy.EnemyDistance / GRID_LENGTH) - tileNum;
+
+            var tilesTravelled = 0;
+            for (var i = 0; i < enemyPath.Length; i += 1)
+            {
+                var path = enemyPath[i];
+
+                if (path.TileIds.Length > (tileNum - tilesTravelled))
+                {
+                    // somewhere in this list is the element we want
+                    var currentTile = GetMapCoordinateForId(path.TileIds[tileNum - tilesTravelled]);
+
+                    // grab the next element, so that we can interpolate.
+                    var nextTileTest = GetEnemyNextTileId(enemy);
+
+                    if (nextTileTest.HasValue)
+                    {
+                        // we are not at the last tile
+                        var nextTile = GetMapCoordinateForId(nextTileTest.Value);
+                        return new Point(
+                            (int)(currentTile.X + ((nextTile.X - currentTile.X) * tilePercentage)),
+                            (int)(currentTile.Y + ((nextTile.Y - currentTile.Y) * tilePercentage)));
+                    }
+                    else
+                    {
+                        // we are at the las tile
+                        return currentTile;
+                    }
                 }
                 else
                 {
@@ -250,16 +376,17 @@ namespace Students_vs_teachers
                 var enemyGridLocation = GetMapCoordinateForId(enemyPath[0].TileIds[0]);
 
                 var enemyImage = new PictureBox();
-                enemyImage.Size = new Size(Properties.Resources.teacher01.Width, Properties.Resources.teacher01.Height);
+                var newEnemy = new Enemy(activeEnemies.Count, 0, enemyImage, 0);
+                activeEnemies.Add(newEnemy);
+
+                enemyImage.Size = new Size(Properties.Resources.teacher0_right.Width, Properties.Resources.teacher0_right.Height);
                 enemyImage.Location = new Point(enemyGridLocation.X, enemyGridLocation.Y + (int)(0.5 * GRID_LENGTH));
-                enemyImage.BackgroundImage = Properties.Resources.teacher01;
+                enemyImage.BackgroundImage = ImageRotation.GetEnemyImage(newEnemy, enemyPath[0].Orientation);
                 enemyImage.Visible = true;
                 enemyImage.BackgroundImageLayout = ImageLayout.None;
 
                 Controls.Add(enemyImage);
                 enemyImage.BringToFront();
-
-                activeEnemies.Add(new Enemy(activeEnemies.Count, enemyImage, 0));
             }
 
             // move all enemies
@@ -267,10 +394,11 @@ namespace Students_vs_teachers
             {
                 var oldEnemy = activeEnemies[i];
 
-                var newEnemy = new Enemy(oldEnemy.Id, oldEnemy.EnemyImage, oldEnemy.EnemyDistance + 10);
+                var newEnemy = new Enemy(oldEnemy.Id, oldEnemy.EnemyType, oldEnemy.EnemyImage, oldEnemy.EnemyDistance + 2);
                 activeEnemies[i] = newEnemy;
 
-                var newEnemyLocationTest = GetEnemyLocation(newEnemy.EnemyDistance);
+                var newEnemyPath = GetEnemyPath(newEnemy);
+                var newEnemyLocationTest = GetEnemyLocation(newEnemy);
 
                 if (!newEnemyLocationTest.HasValue)
                 {
@@ -295,7 +423,11 @@ namespace Students_vs_teachers
                 }
 
                 // rotate enemy if necessary
-                // todo
+                var enemyImage = ImageRotation.GetEnemyImage(newEnemy, GetEnemyNextPath(newEnemy)?.Orientation ?? 0);
+                if (newEnemy.EnemyImage.BackgroundImage != enemyImage)
+                {
+                    newEnemy.EnemyImage.BackgroundImage = enemyImage;
+                }
             }
         }
 
