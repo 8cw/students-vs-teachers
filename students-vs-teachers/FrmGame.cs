@@ -21,7 +21,37 @@ namespace Students_vs_teachers
         private const int GRID_LENGTH = 32;
 
         private readonly Grid[] grid = new Grid[1920];
-        private readonly int[] enemyPath = { 1020, 1021, 1022, 1023, 1024, 1025, 1026, 1027, 1028, 1029, 1030, 970, 910, 850, 790, 730, 670, 610, 550, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 561, 621, 681, 741, 801, 861, 921, 981, 1041, 1101, 1161, 1221, 1222, 1223, 1224, 1225, 1226, 1227, 1228, 1229, 1230, 1231, 1232, 1233, 1234, 1235, 1236, 1237, 1238, 1178, 1118, 1058, 998, 938, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899 };
+        private readonly PathOrientation[] enemyPath =
+        {
+            new PathOrientation
+            {
+                Orientation = 0, TileIds = new int[] { 1020, 1021, 1022, 1023, 1024, 1025, 1026, 1027, 1028, 1029, 1030 },
+            },
+            new PathOrientation
+            {
+                Orientation = 270, TileIds = new int[] { 970, 910, 850, 790, 730, 670, 610, 550, 490 },
+            },
+            new PathOrientation
+            {
+                Orientation = 0, TileIds = new int[] { 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501 },
+            },
+            new PathOrientation
+            {
+                Orientation = 90, TileIds = new int[] { 561, 621, 681, 741, 801, 861, 921, 981, 1041, 1101, 1161, 1221 },
+            },
+            new PathOrientation
+            {
+                Orientation = 0, TileIds = new int[] { 1222, 1223, 1224, 1225, 1226, 1227, 1228, 1229, 1230, 1231, 1232, 1233, 1234, 1235, 1236, 1237, 1238, },
+            },
+            new PathOrientation
+            {
+                Orientation = 270, TileIds = new int[] { 1178, 1118, 1058, 998, 938, 878 },
+            },
+            new PathOrientation
+            {
+                Orientation = 0, TileIds = new int[] { 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899 },
+            },
+        };
 
         /// <summary>
         /// The grids the user cannot place onto. These are for miscellaneous decorations.
@@ -116,18 +146,29 @@ namespace Students_vs_teachers
         /// </summary>
         /// <param name="enemyDistance">An integer representing how many units the enemy has traveled.</param>
         /// <returns>A point representing where the enemy should be.</returns>
-        private Point GetEnemyLocation(int enemyDistance)
+        private Point? GetEnemyLocation(int enemyDistance)
         {
-            var gridNumber = enemyPath.ElementAtOrDefault(enemyDistance / GRID_LENGTH);
-            if (gridNumber == 0)
+            var tileNum = enemyDistance / GRID_LENGTH;
+
+            var tilesTravelled = 0;
+            for (var i = 0; i < enemyPath.Length; i += 1)
             {
-                return new Point(0, 0);
+                var path = enemyPath[i];
+
+                if (path.TileIds.Length > (tileNum - tilesTravelled))
+                {
+                    // somewhere in this list is the element we want
+                    return GetMapCoordinateForId(path.TileIds[tileNum - tilesTravelled]);
+                }
+                else
+                {
+                    // must be next path sequence.
+                    tilesTravelled += path.TileIds.Length;
+                }
             }
-            else
-            {
-                var gridLocation = GetMapCoordinateForId(gridNumber);
-                return new Point(gridLocation.X, gridLocation.Y);
-            }
+
+            // player is out of bounds.
+            return null;
         }
 
         /// <summary>
@@ -154,7 +195,7 @@ namespace Students_vs_teachers
                 var gridLabel = new Label();
                 gridLabel.Size = new Size(GRID_LENGTH, GRID_LENGTH);
                 gridLabel.Location = gridCoordinate;
-                gridLabel.Visible = enemyPath.Contains(i);
+                gridLabel.Visible = enemyPath.Select((path) => path.TileIds.Contains(i)) != null;
                 gridLabel.Text = $"{i}";
 
                 // gridLabel.BackColor = ((i + y) % 2) == 0 ? Color.Blue : Color.Red;
@@ -179,6 +220,11 @@ namespace Students_vs_teachers
             tmrTowerPlacement.Start();
         }
 
+        private void EnemyDeath(Enemy enemy)
+        {
+            enemy.EnemyImage.Dispose();
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
         private void btnHelp_Click(object sender, EventArgs e)
         {
@@ -201,7 +247,7 @@ namespace Students_vs_teachers
             enemySpawnCount = (enemySpawnCount + 1) % 32;
             if (enemySpawnCount == 0)
             {
-                var enemyGridLocation = GetMapCoordinateForId(enemyPath[0]);
+                var enemyGridLocation = GetMapCoordinateForId(enemyPath[0].TileIds[0]);
 
                 var enemyImage = new PictureBox();
                 enemyImage.Size = new Size(Properties.Resources.teacher01.Width, Properties.Resources.teacher01.Height);
@@ -221,15 +267,35 @@ namespace Students_vs_teachers
             {
                 var oldEnemy = activeEnemies[i];
 
-                var newEnemy = new Enemy(oldEnemy.Id, oldEnemy.EnemyImage, oldEnemy.EnemyDistance + 2);
+                var newEnemy = new Enemy(oldEnemy.Id, oldEnemy.EnemyImage, oldEnemy.EnemyDistance + 10);
                 activeEnemies[i] = newEnemy;
 
-                var newEnemyLocation = GetEnemyLocation(newEnemy.EnemyDistance);
+                var newEnemyLocationTest = GetEnemyLocation(newEnemy.EnemyDistance);
 
+                if (!newEnemyLocationTest.HasValue)
+                {
+                    // enemy has gone out of boundaries
+                    EnemyDeath(oldEnemy);
+
+                    var n = activeEnemies.Count - 1;
+                    activeEnemies[i] = activeEnemies[n];
+                    activeEnemies.RemoveAt(n);
+
+                    i += 1;
+                    continue;
+                }
+
+                // assert that value exists
+                var newEnemyLocation = newEnemyLocationTest.Value;
+
+                // move enemy if necessary
                 if (newEnemy.EnemyImage.Location.X != newEnemyLocation.X || newEnemy.EnemyImage.Location.Y != newEnemyLocation.Y)
                 {
                     newEnemy.EnemyImage.Location = newEnemyLocation;
                 }
+
+                // rotate enemy if necessary
+                // todo
             }
         }
 
@@ -350,7 +416,7 @@ namespace Students_vs_teachers
             // check that we are not hovering over a grid already have an item
             // check that we are not placing on an invalid grid
             var gridId = GetCurrentHoveredGrid();
-            if (enemyPath.Contains(gridId) || blacklistedGridIds.Contains(gridId) || gridIdsConsumed.Contains(gridId))
+            if (enemyPath.Select((path) => path.TileIds.Contains(gridId)) != null || blacklistedGridIds.Contains(gridId) || gridIdsConsumed.Contains(gridId))
             {
                 return;
             }

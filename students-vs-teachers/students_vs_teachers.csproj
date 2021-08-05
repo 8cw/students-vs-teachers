@@ -88,6 +88,7 @@
     </Compile>
     <Compile Include="Grid.cs" />
     <Compile Include="HelpPageInfo.cs" />
+    <Compile Include="PathOrientation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TowerInfo.cs" />
