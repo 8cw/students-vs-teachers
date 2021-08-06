@@ -449,7 +449,7 @@ namespace Students_vs_teachers
         private void SubtractMoney(int amount)
         {
             money -= amount;
-            lblMoney.Text = $"Money: {money}";
+            lblMoney.Text = $"Money: ${money}";
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
