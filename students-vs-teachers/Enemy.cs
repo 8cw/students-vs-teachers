@@ -13,9 +13,14 @@ using System.Windows.Forms;
 internal struct Enemy
 {
     /// <summary>
-    /// The grid ID.
+    /// The enemy Id.
     /// </summary>
     public readonly int Id;
+
+    /// <summary>
+    /// The Id of the enemy type.
+    /// </summary>
+    public readonly int EnemyType;
 
     /// <summary>
     /// The image associated with this grid.
@@ -31,13 +36,14 @@ internal struct Enemy
     /// Initializes a new instance of the <see cref="Enemy"/> struct.
     /// </summary>
     /// <param name="id">The id of the enemy.</param>
+    /// <param name="enemyType">The type of enemy.</param>
     /// <param name="enemyImage"> The image of the enemy.</param>
     /// <param name="enemyDistance"> How far the enemy has travelled since the start.</param>
-    public Enemy(int id, PictureBox enemyImage, int enemyDistance)
+    public Enemy(int id, int enemyType, PictureBox enemyImage, int enemyDistance)
     {
         Id = id;
+        EnemyType = enemyType;
         EnemyImage = enemyImage;
-
         EnemyDistance = enemyDistance;
     }
 
@@ -45,5 +51,5 @@ internal struct Enemy
     /// Returns a printable version of a Enemy.
     /// </summary>
     /// <returns>The readable version of a Enemy.</returns>
-    public override string ToString() => $"Enemy[#{Id}@{EnemyImage.Location}]";
+    public override string ToString() => $"Enemy[Type={EnemyType}#{Id}@{EnemyImage.Location}]";
 }
