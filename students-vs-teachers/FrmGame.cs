@@ -548,7 +548,7 @@ namespace Students_vs_teachers
             // check that we are not hovering over a grid already have an item
             // check that we are not placing on an invalid grid
             var gridId = GetCurrentHoveredGrid();
-            if (enemyPath.Select((path) => path.TileIds.Contains(gridId)) != null || blacklistedGridIds.Contains(gridId) || gridIdsConsumed.Contains(gridId))
+            if (enemyPath.Any((path) => path.TileIds.Contains(gridId)) || blacklistedGridIds.Contains(gridId) || gridIdsConsumed.Contains(gridId))
             {
                 return;
             }
