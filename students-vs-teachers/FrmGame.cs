@@ -21,7 +21,37 @@ namespace Students_vs_teachers
         private const int GRID_LENGTH = 32;
 
         private readonly Grid[] grid = new Grid[1920];
-        private readonly int[] enemyPath = { 1020, 1021, 1022, 1023, 1024, 1025, 1026, 1027, 1028, 1029, 1030, 970, 910, 850, 790, 730, 670, 610, 550, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 561, 621, 681, 741, 801, 861, 921, 981, 1041, 1101, 1161, 1221, 1222, 1223, 1224, 1225, 1226, 1227, 1228, 1229, 1230, 1231, 1232, 1233, 1234, 1235, 1236, 1237, 1238, 1178, 1118, 1058, 998, 938, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899 };
+        private readonly PathOrientation[] enemyPath =
+        {
+            new PathOrientation
+            {
+                Orientation = 0, TileIds = new int[] { 1020, 1021, 1022, 1023, 1024, 1025, 1026, 1027, 1028, 1029, 1030 },
+            },
+            new PathOrientation
+            {
+                Orientation = 270, TileIds = new int[] { 970, 910, 850, 790, 730, 670, 610, 550, 490 },
+            },
+            new PathOrientation
+            {
+                Orientation = 0, TileIds = new int[] { 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501 },
+            },
+            new PathOrientation
+            {
+                Orientation = 90, TileIds = new int[] { 561, 621, 681, 741, 801, 861, 921, 981, 1041, 1101, 1161, 1221 },
+            },
+            new PathOrientation
+            {
+                Orientation = 0, TileIds = new int[] { 1222, 1223, 1224, 1225, 1226, 1227, 1228, 1229, 1230, 1231, 1232, 1233, 1234, 1235, 1236, 1237, 1238, },
+            },
+            new PathOrientation
+            {
+                Orientation = 270, TileIds = new int[] { 1178, 1118, 1058, 998, 938, 878 },
+            },
+            new PathOrientation
+            {
+                Orientation = 0, TileIds = new int[] { 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899 },
+            },
+        };
 
         /// <summary>
         /// The grids the user cannot place onto. These are for miscellaneous decorations.
@@ -112,22 +142,159 @@ namespace Students_vs_teachers
         }
 
         /// <summary>
+        /// Retrieves the path the enemy is currently travelling on.
+        /// </summary>
+        /// <param name="enemy">The enemy to retrieve the path for.</param>
+        /// <returns>The path the enemy is travelling on, or null if the enemy is not travelling on a path.</returns>
+        private PathOrientation? GetEnemyPath(Enemy enemy)
+        {
+            var tileNum = enemy.EnemyDistance / GRID_LENGTH;
+
+            var tilesTravelled = 0;
+            for (var i = 0; i < enemyPath.Length; i += 1)
+            {
+                var path = enemyPath[i];
+
+                if (path.TileIds.Length > (tileNum - tilesTravelled))
+                {
+                    // somewhere in this list is the element we want
+                    return path;
+                }
+                else
+                {
+                    // must be next path sequence.
+                    tilesTravelled += path.TileIds.Length;
+                }
+            }
+
+            // player is out of bounds.
+            return null;
+        }
+
+        /// <summary>
+        /// Retrieves the next path the enemy is going to travel on.
+        /// </summary>
+        /// <param name="enemy">The enemy.</param>
+        /// <returns>The path the enemy will travel on, or null if they are not travelling on a path.</returns>
+        private PathOrientation? GetEnemyNextPath(Enemy enemy)
+        {
+            var tileNum = enemy.EnemyDistance / GRID_LENGTH;
+
+            var tilesTravelled = 0;
+            for (var i = 0; i < enemyPath.Length; i += 1)
+            {
+                var path = enemyPath[i];
+
+                if (path.TileIds.Length > (tileNum - tilesTravelled))
+                {
+                    // somewhere in this list is the element we want
+                    if (path.TileIds.Length > (tileNum - tilesTravelled + 1))
+                    {
+                        // case one: the next tile is in our current path
+                        return path;
+                    }
+                    else if (enemyPath.Length > (i + 1))
+                    {
+                        // case two: the next tile is in our next path
+                        return enemyPath[i + 1];
+                    }
+                }
+                else
+                {
+                    // must be next path sequence.
+                    tilesTravelled += path.TileIds.Length;
+                }
+            }
+
+            // player is at the last tile.
+            return null;
+        }
+
+        /// <summary>
+        /// Retrieves the ID of the next tile an enemy is travelling to.
+        /// </summary>
+        /// <param name="enemy">The enemy.</param>
+        /// <returns>The ID of the tile the enemy is travelling to, or null if they have completed the game.</returns>
+        private int? GetEnemyNextTileId(Enemy enemy)
+        {
+            var tileNum = enemy.EnemyDistance / GRID_LENGTH;
+
+            var tilesTravelled = 0;
+            for (var i = 0; i < enemyPath.Length; i += 1)
+            {
+                var path = enemyPath[i];
+
+                if (path.TileIds.Length > (tileNum - tilesTravelled))
+                {
+                    // somewhere in this list is the element we want
+                    if (path.TileIds.Length > (tileNum - tilesTravelled + 1))
+                    {
+                        // case one: the next tile is in our current path
+                        return path.TileIds[tileNum - tilesTravelled + 1];
+                    }
+                    else if (enemyPath.Length > (i + 1))
+                    {
+                        // case two: the next tile is in our next path
+                        return enemyPath[i + 1].TileIds[0];
+                    }
+                }
+                else
+                {
+                    // must be next path sequence.
+                    tilesTravelled += path.TileIds.Length;
+                }
+            }
+
+            // player is at the last tile.
+            return null;
+        }
+
+        /// <summary>
         /// Retrieves the location an enemy should be given the distance they have traveled.
         /// </summary>
-        /// <param name="enemyDistance">An integer representing how many units the enemy has traveled.</param>
+        /// <param name="enemy">The enemy.</param>
         /// <returns>A point representing where the enemy should be.</returns>
-        private Point GetEnemyLocation(int enemyDistance)
+        private Point? GetEnemyLocation(Enemy enemy)
         {
-            var gridNumber = enemyPath.ElementAtOrDefault(enemyDistance / GRID_LENGTH);
-            if (gridNumber == 0)
+            var tileNum = enemy.EnemyDistance / GRID_LENGTH;
+            double tilePercentage = ((double)enemy.EnemyDistance / GRID_LENGTH) - tileNum;
+
+            var tilesTravelled = 0;
+            for (var i = 0; i < enemyPath.Length; i += 1)
             {
-                return new Point(0, 0);
+                var path = enemyPath[i];
+
+                if (path.TileIds.Length > (tileNum - tilesTravelled))
+                {
+                    // somewhere in this list is the element we want
+                    var currentTile = GetMapCoordinateForId(path.TileIds[tileNum - tilesTravelled]);
+
+                    // grab the next element, so that we can interpolate.
+                    var nextTileTest = GetEnemyNextTileId(enemy);
+
+                    if (nextTileTest.HasValue)
+                    {
+                        // we are not at the last tile
+                        var nextTile = GetMapCoordinateForId(nextTileTest.Value);
+                        return new Point(
+                            (int)(currentTile.X + ((nextTile.X - currentTile.X) * tilePercentage)),
+                            (int)(currentTile.Y + ((nextTile.Y - currentTile.Y) * tilePercentage)));
+                    }
+                    else
+                    {
+                        // we are at the las tile
+                        return currentTile;
+                    }
+                }
+                else
+                {
+                    // must be next path sequence.
+                    tilesTravelled += path.TileIds.Length;
+                }
             }
-            else
-            {
-                var gridLocation = GetMapCoordinateForId(gridNumber);
-                return new Point(gridLocation.X, gridLocation.Y);
-            }
+
+            // player is out of bounds.
+            return null;
         }
 
         /// <summary>
@@ -154,7 +321,7 @@ namespace Students_vs_teachers
                 var gridLabel = new Label();
                 gridLabel.Size = new Size(GRID_LENGTH, GRID_LENGTH);
                 gridLabel.Location = gridCoordinate;
-                gridLabel.Visible = enemyPath.Contains(i);
+                gridLabel.Visible = enemyPath.Select((path) => path.TileIds.Contains(i)) != null;
                 gridLabel.Text = $"{i}";
 
                 // gridLabel.BackColor = ((i + y) % 2) == 0 ? Color.Blue : Color.Red;
@@ -179,6 +346,11 @@ namespace Students_vs_teachers
             tmrTowerPlacement.Start();
         }
 
+        private void EnemyDeath(Enemy enemy)
+        {
+            enemy.EnemyImage.Dispose();
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
         private void btnHelp_Click(object sender, EventArgs e)
         {
@@ -201,19 +373,20 @@ namespace Students_vs_teachers
             enemySpawnCount = (enemySpawnCount + 1) % 32;
             if (enemySpawnCount == 0)
             {
-                var enemyGridLocation = GetMapCoordinateForId(enemyPath[0]);
+                var enemyGridLocation = GetMapCoordinateForId(enemyPath[0].TileIds[0]);
 
                 var enemyImage = new PictureBox();
-                enemyImage.Size = new Size(Properties.Resources.teacher01.Width, Properties.Resources.teacher01.Height);
+                var newEnemy = new Enemy(activeEnemies.Count, 0, enemyImage, 0);
+                activeEnemies.Add(newEnemy);
+
+                enemyImage.Size = new Size(Properties.Resources.teacher0_right.Width, Properties.Resources.teacher0_right.Height);
                 enemyImage.Location = new Point(enemyGridLocation.X, enemyGridLocation.Y + (int)(0.5 * GRID_LENGTH));
-                enemyImage.BackgroundImage = Properties.Resources.teacher01;
+                enemyImage.BackgroundImage = ImageRotation.GetEnemyImage(newEnemy, enemyPath[0].Orientation);
                 enemyImage.Visible = true;
                 enemyImage.BackgroundImageLayout = ImageLayout.None;
 
                 Controls.Add(enemyImage);
                 enemyImage.BringToFront();
-
-                activeEnemies.Add(new Enemy(activeEnemies.Count, enemyImage, 0));
             }
 
             // move all enemies
@@ -221,14 +394,39 @@ namespace Students_vs_teachers
             {
                 var oldEnemy = activeEnemies[i];
 
-                var newEnemy = new Enemy(oldEnemy.Id, oldEnemy.EnemyImage, oldEnemy.EnemyDistance + 2);
+                var newEnemy = new Enemy(oldEnemy.Id, oldEnemy.EnemyType, oldEnemy.EnemyImage, oldEnemy.EnemyDistance + 2);
                 activeEnemies[i] = newEnemy;
 
-                var newEnemyLocation = GetEnemyLocation(newEnemy.EnemyDistance);
+                var newEnemyPath = GetEnemyPath(newEnemy);
+                var newEnemyLocationTest = GetEnemyLocation(newEnemy);
 
+                if (!newEnemyLocationTest.HasValue)
+                {
+                    // enemy has gone out of boundaries
+                    EnemyDeath(oldEnemy);
+
+                    var n = activeEnemies.Count - 1;
+                    activeEnemies[i] = activeEnemies[n];
+                    activeEnemies.RemoveAt(n);
+
+                    i += 1;
+                    continue;
+                }
+
+                // assert that value exists
+                var newEnemyLocation = newEnemyLocationTest.Value;
+
+                // move enemy if necessary
                 if (newEnemy.EnemyImage.Location.X != newEnemyLocation.X || newEnemy.EnemyImage.Location.Y != newEnemyLocation.Y)
                 {
                     newEnemy.EnemyImage.Location = newEnemyLocation;
+                }
+
+                // rotate enemy if necessary
+                var enemyImage = ImageRotation.GetEnemyImage(newEnemy, GetEnemyNextPath(newEnemy)?.Orientation ?? 0);
+                if (newEnemy.EnemyImage.BackgroundImage != enemyImage)
+                {
+                    newEnemy.EnemyImage.BackgroundImage = enemyImage;
                 }
             }
         }
@@ -251,7 +449,7 @@ namespace Students_vs_teachers
         private void SubtractMoney(int amount)
         {
             money -= amount;
-            lblMoney.Text = $"Money: {money}";
+            lblMoney.Text = $"Money: ${money}";
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
@@ -350,7 +548,7 @@ namespace Students_vs_teachers
             // check that we are not hovering over a grid already have an item
             // check that we are not placing on an invalid grid
             var gridId = GetCurrentHoveredGrid();
-            if (enemyPath.Contains(gridId) || blacklistedGridIds.Contains(gridId) || gridIdsConsumed.Contains(gridId))
+            if (enemyPath.Any((path) => path.TileIds.Contains(gridId)) || blacklistedGridIds.Contains(gridId) || gridIdsConsumed.Contains(gridId))
             {
                 return;
             }

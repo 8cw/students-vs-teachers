@@ -88,6 +88,8 @@
     </Compile>
     <Compile Include="Grid.cs" />
     <Compile Include="HelpPageInfo.cs" />
+    <Compile Include="ImageRotation.cs" />
+    <Compile Include="PathOrientation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TowerInfo.cs" />
@@ -163,9 +165,6 @@
     <None Include="Resources\red_box.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\teacher01.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\tower07.png" />
   </ItemGroup>
   <ItemGroup>
@@ -188,6 +187,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\tower00.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher0_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher0_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher0_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher0_right.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

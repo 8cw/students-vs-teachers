@@ -123,9 +123,39 @@ namespace Students_vs_teachers.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap teacher01 {
+        public static System.Drawing.Bitmap teacher0_down {
             get {
-                object obj = ResourceManager.GetObject("teacher01", resourceCulture);
+                object obj = ResourceManager.GetObject("teacher0_down", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap teacher0_left {
+            get {
+                object obj = ResourceManager.GetObject("teacher0_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap teacher0_right {
+            get {
+                object obj = ResourceManager.GetObject("teacher0_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap teacher0_up {
+            get {
+                object obj = ResourceManager.GetObject("teacher0_up", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

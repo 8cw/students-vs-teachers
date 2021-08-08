@@ -130,8 +130,17 @@
   <data name="red_box" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\red_box.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="teacher01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\teacher01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="teacher0_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\teacher0_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="teacher0_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\teacher0_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="teacher0_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\teacher0_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="teacher0_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\teacher0_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tower00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tower00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
