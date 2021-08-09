@@ -559,6 +559,7 @@ namespace Students_vs_teachers
             grid[gridId].GridImage.BackgroundImage = towerInfo.TowerImage;
             grid[gridId].GridImage.Visible = true;
             gridIdsConsumed.Add(gridId);
+            SoundPlayer.TowerPlacement.Play();
 
             // subtract money
             SubtractMoney(towerInfo.Cost);
