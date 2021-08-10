@@ -127,6 +127,15 @@
   <data name="GAMERIA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GAMERIA.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="placement_cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\placement_cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="placement_circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\placement_circle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="placement_circle_illegal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\placement_circle_illegal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="red_box" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\red_box.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -165,6 +174,9 @@
   </data>
   <data name="tower07" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tower07.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tower_placement" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tower_placement.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="_01_helpImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\01_helpImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

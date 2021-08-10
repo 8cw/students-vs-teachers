@@ -113,6 +113,36 @@ namespace Students_vs_teachers.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap placement_cancel {
+            get {
+                object obj = ResourceManager.GetObject("placement_cancel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap placement_circle {
+            get {
+                object obj = ResourceManager.GetObject("placement_circle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap placement_circle_illegal {
+            get {
+                object obj = ResourceManager.GetObject("placement_circle_illegal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap red_box {
             get {
                 object obj = ResourceManager.GetObject("red_box", resourceCulture);
@@ -157,6 +187,15 @@ namespace Students_vs_teachers.Properties {
             get {
                 object obj = ResourceManager.GetObject("teacher0_up", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream tower_placement {
+            get {
+                return ResourceManager.GetStream("tower_placement", resourceCulture);
             }
         }
         
