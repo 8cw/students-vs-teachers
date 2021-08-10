@@ -621,6 +621,36 @@
   <data name="pnlGame.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
+  <data name="pbTowerRange.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="pbTowerRange.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pbTowerRange.Location" type="System.Drawing.Point, System.Drawing">
+    <value>538, 274</value>
+  </data>
+  <data name="pbTowerRange.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 128</value>
+  </data>
+  <data name="pbTowerRange.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="pbTowerRange.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pbTowerRange.Name" xml:space="preserve">
+    <value>pbTowerRange</value>
+  </data>
+  <data name="&gt;&gt;pbTowerRange.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbTowerRange.Parent" xml:space="preserve">
+    <value>pnlGame</value>
+  </data>
+  <data name="&gt;&gt;pbTowerRange.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="pnlGame.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>

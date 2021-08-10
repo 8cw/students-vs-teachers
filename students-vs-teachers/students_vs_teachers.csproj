@@ -96,6 +96,7 @@
     <Compile Include="TowerInfo.cs" />
     <EmbeddedResource Include="FrmGame.resx">
       <DependentUpon>FrmGame.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHelp.resx">
       <DependentUpon>FrmHelp.cs</DependentUpon>
@@ -206,6 +207,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\placement_cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\placement_circle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

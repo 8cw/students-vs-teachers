@@ -33,6 +33,11 @@ public struct TowerInfo
     public float AttackInterval;
 
     /// <summary>
+    /// The amount of tiles radius the tower can attack around.
+    /// </summary>
+    public int TowerRange;
+
+    /// <summary>
     /// The tower image.
     /// </summary>
     public Bitmap TowerImage;

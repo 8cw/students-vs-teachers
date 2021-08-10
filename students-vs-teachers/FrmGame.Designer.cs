@@ -49,8 +49,10 @@ namespace Students_vs_teachers
             this.pbTower2 = new System.Windows.Forms.PictureBox();
             this.pbTower1 = new System.Windows.Forms.PictureBox();
             this.pbTower0 = new System.Windows.Forms.PictureBox();
+            this.pbTowerRange = new System.Windows.Forms.PictureBox();
             this.pnlMenu.SuspendLayout();
             this.pnlTowers.SuspendLayout();
+            this.pnlGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancelPlacement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTower7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTower6)).BeginInit();
@@ -60,6 +62,7 @@ namespace Students_vs_teachers
             ((System.ComponentModel.ISupportInitialize)(this.pbTower2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTower1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTower0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTowerRange)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -135,6 +138,7 @@ namespace Students_vs_teachers
             // 
             this.pnlGame.BackColor = System.Drawing.SystemColors.ActiveCaption;
             resources.ApplyResources(this.pnlGame, "pnlGame");
+            this.pnlGame.Controls.Add(this.pbTowerRange);
             this.pnlGame.Name = "pnlGame";
             // 
             // pbCancelPlacement
@@ -151,7 +155,6 @@ namespace Students_vs_teachers
             resources.ApplyResources(this.pbTower7, "pbTower7");
             this.pbTower7.Name = "pbTower7";
             this.pbTower7.TabStop = false;
-            this.pbTower7.Click += new System.EventHandler(this.pbTower7_Click);
             // 
             // pbTower6
             // 
@@ -159,7 +162,6 @@ namespace Students_vs_teachers
             resources.ApplyResources(this.pbTower6, "pbTower6");
             this.pbTower6.Name = "pbTower6";
             this.pbTower6.TabStop = false;
-            this.pbTower6.Click += new System.EventHandler(this.pbTower6_Click);
             // 
             // pbTower5
             // 
@@ -167,7 +169,6 @@ namespace Students_vs_teachers
             resources.ApplyResources(this.pbTower5, "pbTower5");
             this.pbTower5.Name = "pbTower5";
             this.pbTower5.TabStop = false;
-            this.pbTower5.Click += new System.EventHandler(this.pbTower5_Click);
             // 
             // pbTower4
             // 
@@ -175,7 +176,6 @@ namespace Students_vs_teachers
             resources.ApplyResources(this.pbTower4, "pbTower4");
             this.pbTower4.Name = "pbTower4";
             this.pbTower4.TabStop = false;
-            this.pbTower4.Click += new System.EventHandler(this.pbTower4_Click);
             // 
             // pbTower3
             // 
@@ -183,7 +183,6 @@ namespace Students_vs_teachers
             resources.ApplyResources(this.pbTower3, "pbTower3");
             this.pbTower3.Name = "pbTower3";
             this.pbTower3.TabStop = false;
-            this.pbTower3.Click += new System.EventHandler(this.pbTower3_Click);
             // 
             // pbTower2
             // 
@@ -191,7 +190,6 @@ namespace Students_vs_teachers
             resources.ApplyResources(this.pbTower2, "pbTower2");
             this.pbTower2.Name = "pbTower2";
             this.pbTower2.TabStop = false;
-            this.pbTower2.Click += new System.EventHandler(this.pbTower2_Click);
             // 
             // pbTower1
             // 
@@ -199,7 +197,6 @@ namespace Students_vs_teachers
             resources.ApplyResources(this.pbTower1, "pbTower1");
             this.pbTower1.Name = "pbTower1";
             this.pbTower1.TabStop = false;
-            this.pbTower1.Click += new System.EventHandler(this.pbTower1_Click);
             // 
             // pbTower0
             // 
@@ -207,7 +204,13 @@ namespace Students_vs_teachers
             resources.ApplyResources(this.pbTower0, "pbTower0");
             this.pbTower0.Name = "pbTower0";
             this.pbTower0.TabStop = false;
-            this.pbTower0.Click += new System.EventHandler(this.pbTower0_Click);
+            // 
+            // pbTowerRange
+            // 
+            this.pbTowerRange.BackgroundImage = global::Students_vs_teachers.Properties.Resources.placement_circle;
+            resources.ApplyResources(this.pbTowerRange, "pbTowerRange");
+            this.pbTowerRange.Name = "pbTowerRange";
+            this.pbTowerRange.TabStop = false;
             // 
             // FrmGame
             // 
@@ -222,6 +225,7 @@ namespace Students_vs_teachers
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlMenu.ResumeLayout(false);
             this.pnlTowers.ResumeLayout(false);
+            this.pnlGame.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbCancelPlacement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTower7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTower6)).EndInit();
@@ -231,6 +235,7 @@ namespace Students_vs_teachers
             ((System.ComponentModel.ISupportInitialize)(this.pbTower2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTower1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTower0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTowerRange)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -256,5 +261,6 @@ namespace Students_vs_teachers
         private System.Windows.Forms.PictureBox pbTower6;
         private System.Windows.Forms.PictureBox pbTower7;
         private System.Windows.Forms.PictureBox pbCancelPlacement;
+        private System.Windows.Forms.PictureBox pbTowerRange;
     }
 }
