@@ -35,6 +35,12 @@ namespace Students_vs_teachers
             this.lblLives = new System.Windows.Forms.Label();
             this.lblMoney = new System.Windows.Forms.Label();
             this.pnlTowers = new System.Windows.Forms.Panel();
+            this.lblTowers = new System.Windows.Forms.Label();
+            this.btnHelp = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
+            this.btnToggleState = new System.Windows.Forms.Button();
+            this.pnlGame = new System.Windows.Forms.Panel();
+            this.pbCancelPlacement = new System.Windows.Forms.PictureBox();
             this.pbTower7 = new System.Windows.Forms.PictureBox();
             this.pbTower6 = new System.Windows.Forms.PictureBox();
             this.pbTower5 = new System.Windows.Forms.PictureBox();
@@ -43,13 +49,9 @@ namespace Students_vs_teachers
             this.pbTower2 = new System.Windows.Forms.PictureBox();
             this.pbTower1 = new System.Windows.Forms.PictureBox();
             this.pbTower0 = new System.Windows.Forms.PictureBox();
-            this.lblTowers = new System.Windows.Forms.Label();
-            this.btnHelp = new System.Windows.Forms.Button();
-            this.btnSettings = new System.Windows.Forms.Button();
-            this.btnToggleState = new System.Windows.Forms.Button();
-            this.pnlGame = new System.Windows.Forms.Panel();
             this.pnlMenu.SuspendLayout();
             this.pnlTowers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCancelPlacement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTower7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTower6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTower5)).BeginInit();
@@ -89,6 +91,7 @@ namespace Students_vs_teachers
             // 
             // pnlTowers
             // 
+            this.pnlTowers.Controls.Add(this.pbCancelPlacement);
             this.pnlTowers.Controls.Add(this.pbTower7);
             this.pnlTowers.Controls.Add(this.pbTower6);
             this.pnlTowers.Controls.Add(this.pbTower5);
@@ -100,6 +103,47 @@ namespace Students_vs_teachers
             this.pnlTowers.Controls.Add(this.lblTowers);
             resources.ApplyResources(this.pnlTowers, "pnlTowers");
             this.pnlTowers.Name = "pnlTowers";
+            // 
+            // lblTowers
+            // 
+            resources.ApplyResources(this.lblTowers, "lblTowers");
+            this.lblTowers.Name = "lblTowers";
+            // 
+            // btnHelp
+            // 
+            resources.ApplyResources(this.btnHelp, "btnHelp");
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.TabStop = false;
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
+            // btnSettings
+            // 
+            resources.ApplyResources(this.btnSettings, "btnSettings");
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.TabStop = false;
+            this.btnSettings.UseVisualStyleBackColor = true;
+            // 
+            // btnToggleState
+            // 
+            resources.ApplyResources(this.btnToggleState, "btnToggleState");
+            this.btnToggleState.Name = "btnToggleState";
+            this.btnToggleState.TabStop = false;
+            this.btnToggleState.UseVisualStyleBackColor = true;
+            // 
+            // pnlGame
+            // 
+            this.pnlGame.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            resources.ApplyResources(this.pnlGame, "pnlGame");
+            this.pnlGame.Name = "pnlGame";
+            // 
+            // pbCancelPlacement
+            // 
+            this.pbCancelPlacement.BackgroundImage = global::Students_vs_teachers.Properties.Resources.placement_cancel;
+            resources.ApplyResources(this.pbCancelPlacement, "pbCancelPlacement");
+            this.pbCancelPlacement.Name = "pbCancelPlacement";
+            this.pbCancelPlacement.TabStop = false;
+            this.pbCancelPlacement.Click += new System.EventHandler(this.pbCancelPlacement_Click);
             // 
             // pbTower7
             // 
@@ -165,39 +209,6 @@ namespace Students_vs_teachers
             this.pbTower0.TabStop = false;
             this.pbTower0.Click += new System.EventHandler(this.pbTower0_Click);
             // 
-            // lblTowers
-            // 
-            resources.ApplyResources(this.lblTowers, "lblTowers");
-            this.lblTowers.Name = "lblTowers";
-            // 
-            // btnHelp
-            // 
-            resources.ApplyResources(this.btnHelp, "btnHelp");
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.TabStop = false;
-            this.btnHelp.UseVisualStyleBackColor = true;
-            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
-            // 
-            // btnSettings
-            // 
-            resources.ApplyResources(this.btnSettings, "btnSettings");
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.TabStop = false;
-            this.btnSettings.UseVisualStyleBackColor = true;
-            // 
-            // btnToggleState
-            // 
-            resources.ApplyResources(this.btnToggleState, "btnToggleState");
-            this.btnToggleState.Name = "btnToggleState";
-            this.btnToggleState.TabStop = false;
-            this.btnToggleState.UseVisualStyleBackColor = true;
-            // 
-            // pnlGame
-            // 
-            this.pnlGame.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            resources.ApplyResources(this.pnlGame, "pnlGame");
-            this.pnlGame.Name = "pnlGame";
-            // 
             // FrmGame
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -211,6 +222,7 @@ namespace Students_vs_teachers
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlMenu.ResumeLayout(false);
             this.pnlTowers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbCancelPlacement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTower7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTower6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTower5)).EndInit();
@@ -243,5 +255,6 @@ namespace Students_vs_teachers
         private System.Windows.Forms.PictureBox pbTower5;
         private System.Windows.Forms.PictureBox pbTower6;
         private System.Windows.Forms.PictureBox pbTower7;
+        private System.Windows.Forms.PictureBox pbCancelPlacement;
     }
 }

@@ -113,6 +113,16 @@ namespace Students_vs_teachers.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap placement_cancel {
+            get {
+                object obj = ResourceManager.GetObject("placement_cancel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap red_box {
             get {
                 object obj = ResourceManager.GetObject("red_box", resourceCulture);

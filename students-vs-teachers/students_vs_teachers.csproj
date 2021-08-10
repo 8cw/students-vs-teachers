@@ -204,5 +204,8 @@
   <ItemGroup>
     <None Include="Resources\tower_placement.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\placement_cancel.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

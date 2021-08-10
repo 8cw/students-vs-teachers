@@ -344,6 +344,7 @@ namespace Students_vs_teachers
             // start place tower
             towerPlacing = towerId;
             tmrTowerPlacement.Start();
+            pbCancelPlacement.Visible = true;
         }
 
         private void EnemyDeath(Enemy enemy)
@@ -567,6 +568,15 @@ namespace Students_vs_teachers
             // set placing tower to null
             towerPlacing = null;
             tmrTowerPlacement.Stop();
+            pbCancelPlacement.Visible = false;
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
+        private void pbCancelPlacement_Click(object sender, EventArgs e)
+        {
+            towerPlacing = null;
+            tmrTowerPlacement.Stop();
+            pbCancelPlacement.Visible = false;
         }
     }
 }

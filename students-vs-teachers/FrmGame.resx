@@ -117,113 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;lblRound.Name" xml:space="preserve">
-    <value>lblRound</value>
-  </data>
-  <data name="&gt;&gt;lblRound.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblRound.Parent" xml:space="preserve">
-    <value>pnlMenu</value>
-  </data>
-  <data name="&gt;&gt;lblRound.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblLives.Name" xml:space="preserve">
-    <value>lblLives</value>
-  </data>
-  <data name="&gt;&gt;lblLives.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblLives.Parent" xml:space="preserve">
-    <value>pnlMenu</value>
-  </data>
-  <data name="&gt;&gt;lblLives.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lblMoney.Name" xml:space="preserve">
-    <value>lblMoney</value>
-  </data>
-  <data name="&gt;&gt;lblMoney.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblMoney.Parent" xml:space="preserve">
-    <value>pnlMenu</value>
-  </data>
-  <data name="&gt;&gt;lblMoney.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;pnlTowers.Name" xml:space="preserve">
-    <value>pnlTowers</value>
-  </data>
-  <data name="&gt;&gt;pnlTowers.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlTowers.Parent" xml:space="preserve">
-    <value>pnlMenu</value>
-  </data>
-  <data name="&gt;&gt;pnlTowers.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;btnHelp.Name" xml:space="preserve">
-    <value>btnHelp</value>
-  </data>
-  <data name="&gt;&gt;btnHelp.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnHelp.Parent" xml:space="preserve">
-    <value>pnlMenu</value>
-  </data>
-  <data name="&gt;&gt;btnHelp.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;btnSettings.Name" xml:space="preserve">
-    <value>btnSettings</value>
-  </data>
-  <data name="&gt;&gt;btnSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSettings.Parent" xml:space="preserve">
-    <value>pnlMenu</value>
-  </data>
-  <data name="&gt;&gt;btnSettings.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;btnToggleState.Name" xml:space="preserve">
-    <value>btnToggleState</value>
-  </data>
-  <data name="&gt;&gt;btnToggleState.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnToggleState.Parent" xml:space="preserve">
-    <value>pnlMenu</value>
-  </data>
-  <data name="&gt;&gt;btnToggleState.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pnlMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 1024</value>
-  </data>
-  <data name="pnlMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1920, 56</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pnlMenu.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;pnlMenu.Name" xml:space="preserve">
-    <value>pnlMenu</value>
-  </data>
-  <data name="&gt;&gt;pnlMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlMenu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pnlMenu.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="lblRound.Font" type="System.Drawing.Font, System.Drawing">
     <value>GAMERIA, 16pt</value>
   </data>
@@ -237,6 +131,7 @@
   <data name="lblRound.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 20</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblRound.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
@@ -315,134 +210,35 @@
   <data name="&gt;&gt;lblMoney.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;pbTower7.Name" xml:space="preserve">
-    <value>pbTower7</value>
+  <data name="pbCancelPlacement.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
   </data>
-  <data name="&gt;&gt;pbTower7.Type" xml:space="preserve">
+  <data name="pbCancelPlacement.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pbCancelPlacement.Location" type="System.Drawing.Point, System.Drawing">
+    <value>563, 4</value>
+  </data>
+  <data name="pbCancelPlacement.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 48</value>
+  </data>
+  <data name="pbCancelPlacement.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="pbCancelPlacement.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pbCancelPlacement.Name" xml:space="preserve">
+    <value>pbCancelPlacement</value>
+  </data>
+  <data name="&gt;&gt;pbCancelPlacement.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pbTower7.Parent" xml:space="preserve">
+  <data name="&gt;&gt;pbCancelPlacement.Parent" xml:space="preserve">
     <value>pnlTowers</value>
   </data>
-  <data name="&gt;&gt;pbTower7.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;pbCancelPlacement.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;pbTower6.Name" xml:space="preserve">
-    <value>pbTower6</value>
-  </data>
-  <data name="&gt;&gt;pbTower6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pbTower6.Parent" xml:space="preserve">
-    <value>pnlTowers</value>
-  </data>
-  <data name="&gt;&gt;pbTower6.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;pbTower5.Name" xml:space="preserve">
-    <value>pbTower5</value>
-  </data>
-  <data name="&gt;&gt;pbTower5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pbTower5.Parent" xml:space="preserve">
-    <value>pnlTowers</value>
-  </data>
-  <data name="&gt;&gt;pbTower5.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;pbTower4.Name" xml:space="preserve">
-    <value>pbTower4</value>
-  </data>
-  <data name="&gt;&gt;pbTower4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pbTower4.Parent" xml:space="preserve">
-    <value>pnlTowers</value>
-  </data>
-  <data name="&gt;&gt;pbTower4.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;pbTower3.Name" xml:space="preserve">
-    <value>pbTower3</value>
-  </data>
-  <data name="&gt;&gt;pbTower3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pbTower3.Parent" xml:space="preserve">
-    <value>pnlTowers</value>
-  </data>
-  <data name="&gt;&gt;pbTower3.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;pbTower2.Name" xml:space="preserve">
-    <value>pbTower2</value>
-  </data>
-  <data name="&gt;&gt;pbTower2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pbTower2.Parent" xml:space="preserve">
-    <value>pnlTowers</value>
-  </data>
-  <data name="&gt;&gt;pbTower2.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;pbTower1.Name" xml:space="preserve">
-    <value>pbTower1</value>
-  </data>
-  <data name="&gt;&gt;pbTower1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pbTower1.Parent" xml:space="preserve">
-    <value>pnlTowers</value>
-  </data>
-  <data name="&gt;&gt;pbTower1.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;pbTower0.Name" xml:space="preserve">
-    <value>pbTower0</value>
-  </data>
-  <data name="&gt;&gt;pbTower0.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pbTower0.Parent" xml:space="preserve">
-    <value>pnlTowers</value>
-  </data>
-  <data name="&gt;&gt;pbTower0.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;lblTowers.Name" xml:space="preserve">
-    <value>lblTowers</value>
-  </data>
-  <data name="&gt;&gt;lblTowers.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblTowers.Parent" xml:space="preserve">
-    <value>pnlTowers</value>
-  </data>
-  <data name="&gt;&gt;lblTowers.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="pnlTowers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>300, 0</value>
-  </data>
-  <data name="pnlTowers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1200, 56</value>
-  </data>
-  <data name="pnlTowers.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;pnlTowers.Name" xml:space="preserve">
-    <value>pnlTowers</value>
-  </data>
-  <data name="&gt;&gt;pnlTowers.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlTowers.Parent" xml:space="preserve">
-    <value>pnlMenu</value>
-  </data>
-  <data name="&gt;&gt;pnlTowers.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="pbTower7.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
@@ -469,7 +265,7 @@
     <value>pnlTowers</value>
   </data>
   <data name="&gt;&gt;pbTower7.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="pbTower6.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
@@ -496,7 +292,7 @@
     <value>pnlTowers</value>
   </data>
   <data name="&gt;&gt;pbTower6.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="pbTower5.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
@@ -523,7 +319,7 @@
     <value>pnlTowers</value>
   </data>
   <data name="&gt;&gt;pbTower5.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="pbTower4.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
@@ -550,7 +346,7 @@
     <value>pnlTowers</value>
   </data>
   <data name="&gt;&gt;pbTower4.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="pbTower3.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
@@ -577,7 +373,7 @@
     <value>pnlTowers</value>
   </data>
   <data name="&gt;&gt;pbTower3.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="pbTower2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
@@ -604,7 +400,7 @@
     <value>pnlTowers</value>
   </data>
   <data name="&gt;&gt;pbTower2.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="pbTower1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
@@ -631,10 +427,13 @@
     <value>pnlTowers</value>
   </data>
   <data name="&gt;&gt;pbTower1.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="pbTower0.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
+  </data>
+  <data name="pbTower0.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="pbTower0.Location" type="System.Drawing.Point, System.Drawing">
     <value>115, 4</value>
@@ -655,7 +454,7 @@
     <value>pnlTowers</value>
   </data>
   <data name="&gt;&gt;pbTower0.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="lblTowers.Font" type="System.Drawing.Font, System.Drawing">
     <value>GAMERIA, 16pt</value>
@@ -685,7 +484,28 @@
     <value>pnlTowers</value>
   </data>
   <data name="&gt;&gt;lblTowers.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
+  </data>
+  <data name="pnlTowers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>300, 0</value>
+  </data>
+  <data name="pnlTowers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1200, 56</value>
+  </data>
+  <data name="pnlTowers.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;pnlTowers.Name" xml:space="preserve">
+    <value>pnlTowers</value>
+  </data>
+  <data name="&gt;&gt;pnlTowers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlTowers.Parent" xml:space="preserve">
+    <value>pnlMenu</value>
+  </data>
+  <data name="&gt;&gt;pnlTowers.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="btnHelp.Font" type="System.Drawing.Font, System.Drawing">
     <value>GAMERIA, 12pt</value>
@@ -776,6 +596,27 @@
   </data>
   <data name="&gt;&gt;btnToggleState.ZOrder" xml:space="preserve">
     <value>6</value>
+  </data>
+  <data name="pnlMenu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 1024</value>
+  </data>
+  <data name="pnlMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1920, 56</value>
+  </data>
+  <data name="pnlMenu.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pnlMenu.Name" xml:space="preserve">
+    <value>pnlMenu</value>
+  </data>
+  <data name="&gt;&gt;pnlMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlMenu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlMenu.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="pnlGame.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
