@@ -495,6 +495,30 @@ namespace Students_vs_teachers
             lblMoney.Text = $"Money: ${money}";
         }
 
+        /// <summary>
+        /// Cancels tower placement.
+        /// </summary>
+        private void CancelPlacemet()
+        {
+            towerPlacing = null;
+            tmrTowerPlacement.Stop();
+            pbCancelPlacement.Visible = false;
+            pbTowerRange.Visible = false;
+
+            // hide the grid hovered over if it exists
+            var gridId = GetCurrentHoveredGrid();
+            if (gridId < 0 || gridId > grid.Length)
+            {
+                return;
+            }
+
+            var gridSquare = grid[gridId];
+            if (gridSquare.GridImage.Visible)
+            {
+                gridSquare.GridImage.Visible = false;
+            }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
         private void tmrTowerPlacement_Tick(object sender, EventArgs e)
         {
@@ -550,6 +574,12 @@ namespace Students_vs_teachers
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
         private void pnlGame_MouseClick(object sender, MouseEventArgs e)
         {
+            if (e.Button == MouseButtons.Right)
+            {
+                CancelPlacemet();
+                return;
+            }
+
             // handle tower placement
             if (!towerPlacing.HasValue)
             {
@@ -585,10 +615,7 @@ namespace Students_vs_teachers
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
         private void pbCancelPlacement_Click(object sender, EventArgs e)
         {
-            towerPlacing = null;
-            tmrTowerPlacement.Stop();
-            pbCancelPlacement.Visible = false;
-            pbTowerRange.Visible = false;
+            CancelPlacemet();
         }
     }
 }
