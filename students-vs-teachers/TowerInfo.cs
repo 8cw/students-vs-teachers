@@ -28,9 +28,9 @@ public struct TowerInfo
     public int Damage;
 
     /// <summary>
-    /// The interval between attacks in seconds.
+    /// The interval between attacks in game ticks.
     /// </summary>
-    public float AttackInterval;
+    public int AttackInterval;
 
     /// <summary>
     /// The tower image.
