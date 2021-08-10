@@ -211,5 +211,8 @@
   <ItemGroup>
     <None Include="Resources\placement_circle.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\placement_circle_illegal.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -511,12 +511,23 @@ namespace Students_vs_teachers
                     {
                         gridItem.GridImage.Visible = true;
                         gridItem.GridImage.BackgroundImage = towerCosts[towerPlacing ?? 0].TowerImage;
-
+                    }
+                    else
+                    {
                         // make it red if we are placing on already placed tower:
-                        // todo
-                        if (gridItem.GridImage.Image != Properties.Resources.blue_box)
+                        if (enemyPath.Any((path) => path.TileIds.Contains(gridId)) || blacklistedGridIds.Contains(gridId) || gridIdsConsumed.Contains(gridId))
                         {
-                            gridItem.GridImage.Image = Properties.Resources.blue_box;
+                            if (pbTowerRange.BackgroundImage != Properties.Resources.placement_circle_illegal)
+                            {
+                                pbTowerRange.BackgroundImage = Properties.Resources.placement_circle_illegal;
+                            }
+                        }
+                        else
+                        {
+                            if (pbTowerRange.BackgroundImage != Properties.Resources.placement_circle)
+                            {
+                                pbTowerRange.BackgroundImage = Properties.Resources.placement_circle;
+                            }
                         }
                     }
 
