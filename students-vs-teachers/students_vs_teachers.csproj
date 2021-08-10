@@ -92,9 +92,11 @@
     <Compile Include="PathOrientation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SoundPlayer.cs" />
     <Compile Include="TowerInfo.cs" />
     <EmbeddedResource Include="FrmGame.resx">
       <DependentUpon>FrmGame.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHelp.resx">
       <DependentUpon>FrmHelp.cs</DependentUpon>
@@ -199,6 +201,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\teacher0_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tower_placement.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\placement_cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\placement_circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\placement_circle_illegal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
