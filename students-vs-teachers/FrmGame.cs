@@ -59,14 +59,14 @@ namespace Students_vs_teachers
         private readonly int[] blacklistedGridIds = { };
         private readonly Dictionary<int, TowerInfo> towerCosts = new Dictionary<int, TowerInfo>()
         {
-            { 0, new TowerInfo { Name = "Year 9", Cost = 100, Damage = 1, AttackInterval = 1F, TowerRange = 2, TowerImage = Properties.Resources.tower00 } },
-            { 1, new TowerInfo { Name = "Year 10", Cost = 250, Damage = 2, AttackInterval = 0.8F, TowerRange = 3, TowerImage = Properties.Resources.tower01 } },
-            { 2, new TowerInfo { Name = "Year 11", Cost = 600, Damage = 6, AttackInterval = 2F, TowerRange = 2, TowerImage = Properties.Resources.tower02 } },
-            { 3, new TowerInfo { Name = "Year 13", Cost = 800, Damage = 8, AttackInterval = 1.6F, TowerRange = 4, TowerImage = Properties.Resources.tower03 } },
-            { 4, new TowerInfo { Name = "Year 12", Cost = 1000, Damage = 12, AttackInterval = 1.2F, TowerRange = 5, TowerImage = Properties.Resources.tower04 } },
-            { 5, new TowerInfo { Name = "Prefect", Cost = 2000, Damage = 18, AttackInterval = 1F, TowerRange = 7, TowerImage = Properties.Resources.tower05 } },
-            { 6, new TowerInfo { Name = "Head Boy", Cost = 2500, Damage = 20, AttackInterval = 0.7F, TowerRange = 4, TowerImage = Properties.Resources.tower06 } },
-            { 7, new TowerInfo { Name = "Top 6", Cost = 4000, Damage = 40, AttackInterval = 3F, TowerRange = 5, TowerImage = Properties.Resources.tower07 } },
+            { 0, new TowerInfo { Name = "Year 9", Cost = 100, Damage = 1, AttackInterval = 3, TowerRange = 2, TowerImage = Properties.Resources.tower00 } },
+            { 1, new TowerInfo { Name = "Year 10", Cost = 250, Damage = 2, AttackInterval = 2, TowerRange = 3, TowerImage = Properties.Resources.tower01 } },
+            { 2, new TowerInfo { Name = "Year 11", Cost = 600, Damage = 6, AttackInterval = 6, TowerRange = 2, TowerImage = Properties.Resources.tower02 } },
+            { 3, new TowerInfo { Name = "Year 13", Cost = 800, Damage = 8, AttackInterval = 5, TowerRange = 4, TowerImage = Properties.Resources.tower03 } },
+            { 4, new TowerInfo { Name = "Year 12", Cost = 1000, Damage = 12, AttackInterval = 4, TowerRange = 5, TowerImage = Properties.Resources.tower04 } },
+            { 5, new TowerInfo { Name = "Prefect", Cost = 2000, Damage = 18, AttackInterval = 3, TowerRange = 7, TowerImage = Properties.Resources.tower05 } },
+            { 6, new TowerInfo { Name = "Head Boy", Cost = 2500, Damage = 20, AttackInterval = 2, TowerRange = 4, TowerImage = Properties.Resources.tower06 } },
+            { 7, new TowerInfo { Name = "Top 6", Cost = 4000, Damage = 40, AttackInterval = 3, TowerRange = 5, TowerImage = Properties.Resources.tower07 } },
         };
 
         private List<Enemy> activeEnemies = new List<Enemy>();

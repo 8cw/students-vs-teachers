@@ -28,11 +28,6 @@ public struct TowerInfo
     public int Damage;
 
     /// <summary>
-    /// The range of the tower shooting, in grid units.
-    /// </summary>
-    public int TowerRange;
-
-    /// <summary>
     /// The interval between attacks in game ticks.
     /// </summary>
     public int AttackInterval;
