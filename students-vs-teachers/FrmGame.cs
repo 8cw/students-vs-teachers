@@ -71,7 +71,7 @@ namespace Students_vs_teachers
             { 4, new TowerInfo { Name = "Year 12", Cost = 600, Damage = 500, AttackInterval = 30, TowerRange = 12, TowerImage = Properties.Resources.tower04 } },
             { 5, new TowerInfo { Name = "Prefect", Cost = 600, Damage = 400, AttackInterval = 4, TowerRange = 3, TowerImage = Properties.Resources.tower05 } },
             { 6, new TowerInfo { Name = "Head Boy", Cost = 900, Damage = 1000, AttackInterval = 10, TowerRange = 7, TowerImage = Properties.Resources.tower06 } },
-            { 7, new TowerInfo { Name = "Top 6", Cost = 8000, Damage = 10000, AttackInterval = 30, TowerRange = 24, TowerImage = Properties.Resources.tower07 } },
+            { 7, new TowerInfo { Name = "Top 6", Cost = 5000, Damage = 1000000, AttackInterval = 2, TowerRange = 24, TowerImage = Properties.Resources.tower07 } },
         };
 
         private readonly Dictionary<int, EnemyInfo> enemyInfo = new Dictionary<int, EnemyInfo>()
@@ -81,7 +81,8 @@ namespace Students_vs_teachers
             { 2, new EnemyInfo { EnemyType = 2, EnemyHealth = 200, EnemyReward = 14, EnemyLives = 12, } },
             { 3, new EnemyInfo { EnemyType = 3, EnemyHealth = 600, EnemyReward = 26, EnemyLives = 30, } },
             { 4, new EnemyInfo { EnemyType = 4, EnemyHealth = 2400, EnemyReward = 50, EnemyLives = 60, } },
-            { 5, new EnemyInfo { EnemyType = 5, EnemyHealth = 10000, EnemyReward = 75, EnemyLives = 65, } },
+            { 5, new EnemyInfo { EnemyType = 5, EnemyHealth = 8000, EnemyReward = 75, EnemyLives = 65, } },
+            { 6, new EnemyInfo { EnemyType = 6, EnemyHealth = 100000000, EnemyReward = 0, EnemyLives = 150, } },
         };
 
         private readonly EnemyWave[][] enemyRounds = new EnemyWave[][]
@@ -126,7 +127,17 @@ namespace Students_vs_teachers
             new EnemyWave[]
             {
                 new EnemyWave { Spread = 4, Enemies = new int[] { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 }, },
-                new EnemyWave { Spread = 12, Enemies = new int[] { 5, 5, 5, 5, 5, 5 }, },
+                new EnemyWave { Spread = 18, Enemies = new int[] { 5, 5, 5, 5, 5, 5 }, },
+            },
+            new EnemyWave[]
+            {
+                new EnemyWave { Spread = 8, Enemies = new int[] { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 }, },
+                new EnemyWave { Spread = 6, Enemies = new int[] { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 }, },
+            },
+            new EnemyWave[]
+            {
+                new EnemyWave { Spread = 60, Enemies = new int[] { 1 }, },
+                new EnemyWave { Spread = 1, Enemies = new int[] { 6 }, },
             },
         };
 
