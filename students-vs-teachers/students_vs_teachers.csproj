@@ -232,5 +232,17 @@
   <ItemGroup>
     <None Include="Resources\tower_attack.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher2_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher2_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher2_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher2_right.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

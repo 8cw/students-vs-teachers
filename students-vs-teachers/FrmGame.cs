@@ -78,6 +78,7 @@ namespace Students_vs_teachers
         {
             { 0, new EnemyInfo { EnemyType = 0, EnemyHealth = 50, EnemyReward = 3, EnemyLives = 2, } },
             { 1, new EnemyInfo { EnemyType = 1, EnemyHealth = 100, EnemyReward = 6, EnemyLives = 5, } },
+            { 2, new EnemyInfo { EnemyType = 2, EnemyHealth = 200, EnemyReward = 16, EnemyLives = 12, } },
         };
 
         private readonly EnemyWave[][] enemyRounds = new EnemyWave[][]
@@ -92,6 +93,12 @@ namespace Students_vs_teachers
                 new EnemyWave { Spread = 10, Enemies = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, }, },
                 new EnemyWave { Spread = 20, Enemies = new int[] { 1, 0, 1, 0, 1, }, },
                 new EnemyWave { Spread = 10, Enemies = new int[] { 1, 1, 1, 1, 1, 1 }, },
+            },
+            new EnemyWave[]
+            {
+                new EnemyWave { Spread = 10, Enemies = new int[] { 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, }, },
+                new EnemyWave { Spread = 6, Enemies = new int[] { 1, 1, 1, 1, 1, }, },
+                new EnemyWave { Spread = 14, Enemies = new int[] { 0, 1, 2, 0, 1, 2 }, },
             },
         };
 

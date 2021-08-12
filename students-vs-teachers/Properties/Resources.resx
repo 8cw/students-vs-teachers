@@ -163,6 +163,18 @@
   <data name="teacher1_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\teacher1_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="teacher2_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\teacher2_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="teacher2_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\teacher2_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="teacher2_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\teacher2_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="teacher2_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\teacher2_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="tower00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tower00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
