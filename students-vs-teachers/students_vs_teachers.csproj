@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Enemy.cs" />
     <Compile Include="EnemyInfo.cs" />
+    <Compile Include="EnemyWave.cs" />
     <Compile Include="FontLoader.cs" />
     <Compile Include="FrmGame.cs">
       <SubType>Form</SubType>
@@ -230,6 +231,66 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\tower_attack.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher2_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher2_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher2_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher2_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher3_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher3_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher3_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher3_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher4_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher4_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher4_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher4_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher5_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher5_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher5_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher5_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher6_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher6_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher6_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher6_right.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

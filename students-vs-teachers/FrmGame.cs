@@ -20,6 +20,11 @@ namespace Students_vs_teachers
     {
         private const int GRID_LENGTH = 32;
 
+        /// <summary>
+        /// The amount of game ticks between each round.
+        /// </summary>
+        private const int ROUND_DELAY = 120;
+
         private readonly Grid[] grid = new Grid[1920];
         private readonly PathOrientation[] enemyPath =
         {
@@ -59,25 +64,87 @@ namespace Students_vs_teachers
         private readonly int[] blacklistedGridIds = { };
         private readonly Dictionary<int, TowerInfo> towerCosts = new Dictionary<int, TowerInfo>()
         {
-            { 0, new TowerInfo { Name = "Year 9", Cost = 100, Damage = 50, AttackInterval = 30, TowerRange = 2, TowerImage = Properties.Resources.tower00 } },
-            { 1, new TowerInfo { Name = "Year 10", Cost = 250, Damage = 75, AttackInterval = 30, TowerRange = 3, TowerImage = Properties.Resources.tower01 } },
-            { 2, new TowerInfo { Name = "Year 11", Cost = 600, Damage = 125, AttackInterval = 6, TowerRange = 2, TowerImage = Properties.Resources.tower02 } },
-            { 3, new TowerInfo { Name = "Year 13", Cost = 800, Damage = 8, AttackInterval = 5, TowerRange = 4, TowerImage = Properties.Resources.tower03 } },
-            { 4, new TowerInfo { Name = "Year 12", Cost = 1000, Damage = 12, AttackInterval = 4, TowerRange = 5, TowerImage = Properties.Resources.tower04 } },
-            { 5, new TowerInfo { Name = "Prefect", Cost = 2000, Damage = 18, AttackInterval = 3, TowerRange = 7, TowerImage = Properties.Resources.tower05 } },
-            { 6, new TowerInfo { Name = "Head Boy", Cost = 2500, Damage = 20, AttackInterval = 2, TowerRange = 4, TowerImage = Properties.Resources.tower06 } },
-            { 7, new TowerInfo { Name = "Top 6", Cost = 4000, Damage = 40, AttackInterval = 3, TowerRange = 5, TowerImage = Properties.Resources.tower07 } },
+            { 0, new TowerInfo { Name = "Year 9", Cost = 100, Damage = 50, AttackInterval = 15, TowerRange = 2, TowerImage = Properties.Resources.tower00 } },
+            { 1, new TowerInfo { Name = "Year 10", Cost = 175, Damage = 75, AttackInterval = 15, TowerRange = 3, TowerImage = Properties.Resources.tower01 } },
+            { 2, new TowerInfo { Name = "Year 11", Cost = 225, Damage = 75, AttackInterval = 8, TowerRange = 3, TowerImage = Properties.Resources.tower02 } },
+            { 3, new TowerInfo { Name = "Year 13", Cost = 400, Damage = 150, AttackInterval = 4, TowerRange = 4, TowerImage = Properties.Resources.tower03 } },
+            { 4, new TowerInfo { Name = "Year 12", Cost = 600, Damage = 500, AttackInterval = 30, TowerRange = 12, TowerImage = Properties.Resources.tower04 } },
+            { 5, new TowerInfo { Name = "Prefect", Cost = 600, Damage = 400, AttackInterval = 4, TowerRange = 3, TowerImage = Properties.Resources.tower05 } },
+            { 6, new TowerInfo { Name = "Head Boy", Cost = 900, Damage = 1000, AttackInterval = 10, TowerRange = 7, TowerImage = Properties.Resources.tower06 } },
+            { 7, new TowerInfo { Name = "Top 6", Cost = 5000, Damage = 1000000, AttackInterval = 2, TowerRange = 24, TowerImage = Properties.Resources.tower07 } },
         };
 
         private readonly Dictionary<int, EnemyInfo> enemyInfo = new Dictionary<int, EnemyInfo>()
         {
-            { 0, new EnemyInfo { EnemyType = 0, EnemyHealth = 100, EnemyReward = 5, EnemyLives = 1, } },
-            { 1, new EnemyInfo { EnemyType = 1, EnemyHealth = 150, EnemyReward = 5, EnemyLives = 2, } },
+            { 0, new EnemyInfo { EnemyType = 0, EnemyHealth = 50, EnemyReward = 3, EnemyLives = 2, } },
+            { 1, new EnemyInfo { EnemyType = 1, EnemyHealth = 100, EnemyReward = 6, EnemyLives = 5, } },
+            { 2, new EnemyInfo { EnemyType = 2, EnemyHealth = 200, EnemyReward = 14, EnemyLives = 12, } },
+            { 3, new EnemyInfo { EnemyType = 3, EnemyHealth = 600, EnemyReward = 26, EnemyLives = 30, } },
+            { 4, new EnemyInfo { EnemyType = 4, EnemyHealth = 2400, EnemyReward = 50, EnemyLives = 60, } },
+            { 5, new EnemyInfo { EnemyType = 5, EnemyHealth = 8000, EnemyReward = 75, EnemyLives = 65, } },
+            { 6, new EnemyInfo { EnemyType = 6, EnemyHealth = 100000000, EnemyReward = 0, EnemyLives = 150, } },
+        };
+
+        private readonly EnemyWave[][] enemyRounds = new EnemyWave[][]
+        {
+            new EnemyWave[]
+            {
+                new EnemyWave { Spread = 10, Enemies = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, }, },
+                new EnemyWave { Spread = 30, Enemies = new int[] { 1, 1 }, },
+            },
+            new EnemyWave[]
+            {
+                new EnemyWave { Spread = 10, Enemies = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, }, },
+                new EnemyWave { Spread = 20, Enemies = new int[] { 1, 0, 1, 0, 1, }, },
+                new EnemyWave { Spread = 10, Enemies = new int[] { 1, 1, 1, 1, 1, 1 }, },
+            },
+            new EnemyWave[]
+            {
+                new EnemyWave { Spread = 10, Enemies = new int[] { 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, }, },
+                new EnemyWave { Spread = 6, Enemies = new int[] { 1, 1, 1, 1, 1, }, },
+                new EnemyWave { Spread = 14, Enemies = new int[] { 0, 1, 2, 0, 1, 2 }, },
+            },
+            new EnemyWave[]
+            {
+                new EnemyWave { Spread = 10, Enemies = new int[] { 2, 2, 2, 1, 1, 2, 2, 2 }, },
+                new EnemyWave { Spread = 18, Enemies = new int[] { 3, 3, }, },
+                new EnemyWave { Spread = 6, Enemies = new int[] { 2, 2, 2, }, },
+                new EnemyWave { Spread = 18, Enemies = new int[] { 3, 3, }, },
+            },
+            new EnemyWave[]
+            {
+                new EnemyWave { Spread = 10, Enemies = new int[] { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 }, },
+                new EnemyWave { Spread = 5, Enemies = new int[] { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 }, },
+                new EnemyWave { Spread = 2, Enemies = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, }, },
+            },
+            new EnemyWave[]
+            {
+                new EnemyWave { Spread = 30, Enemies = new int[] { 4, 4, 4, 4, 4 }, },
+                new EnemyWave { Spread = 20, Enemies = new int[] { 4, 3, 4, 3, 4 }, },
+                new EnemyWave { Spread = 4, Enemies = new int[] { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 }, },
+                new EnemyWave { Spread = 8, Enemies = new int[] { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 }, },
+            },
+            new EnemyWave[]
+            {
+                new EnemyWave { Spread = 4, Enemies = new int[] { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 }, },
+                new EnemyWave { Spread = 18, Enemies = new int[] { 5, 5, 5, 5, 5, 5 }, },
+            },
+            new EnemyWave[]
+            {
+                new EnemyWave { Spread = 8, Enemies = new int[] { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 }, },
+                new EnemyWave { Spread = 6, Enemies = new int[] { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 }, },
+            },
+            new EnemyWave[]
+            {
+                new EnemyWave { Spread = 60, Enemies = new int[] { 1 }, },
+                new EnemyWave { Spread = 1, Enemies = new int[] { 6 }, },
+            },
         };
 
         private List<Enemy> activeEnemies = new List<Enemy>();
-        private int round = 0;
         private uint enemySpawnCount = 0;
+        private uint gameTicks = 0;
+
         private int? towerPlacing = null;
 
         /// <summary>
@@ -85,7 +152,7 @@ namespace Students_vs_teachers
         /// </summary>
         private List<TowerPlaced> towersPlaced = new List<TowerPlaced>();
         private int money = 225;
-        private int lives = 250;
+        private int lives = 150;
 
         private Timer tmrGameTick = new Timer();
         private Timer tmrTowerPlacement = new Timer();
@@ -130,6 +197,10 @@ namespace Students_vs_teachers
             ConnectTowerEvents(7, pbTower7);
 
             CreateGrid();
+
+            lblMoney.Text = $"Money: ${money}";
+            lblRound.Text = $"Round: 0/{enemyRounds.Length}";
+            lblLives.Text = $"Lives: {lives}";
         }
 
         /// <summary>
@@ -331,14 +402,14 @@ namespace Students_vs_teachers
                 grid[i] = new Grid(i, gridImage);
 
                 // TEMP VIEW FOR LABELS
-                var gridLabel = new Label();
-                gridLabel.Size = new Size(GRID_LENGTH, GRID_LENGTH);
-                gridLabel.Location = gridCoordinate;
-                gridLabel.Visible = enemyPath.Select((path) => path.TileIds.Contains(i)) != null;
-                gridLabel.Text = $"{i}";
+                // var gridLabel = new Label();
+                // gridLabel.Size = new Size(GRID_LENGTH, GRID_LENGTH);
+                // gridLabel.Location = gridCoordinate;
+                // gridLabel.Visible = enemyPath.Any((path) => path.TileIds.Contains(i));
+                // gridLabel.Text = $"{i}";
 
-                // gridLabel.BackColor = ((i + y) % 2) == 0 ? Color.Blue : Color.Red;
-                gridLabel.AutoSize = false;
+                // gridLabel.BackColor = ((i + GetGridCoordinatesForId(i).Y) % 2) == 0 ? Color.Blue : Color.Red;
+                // gridLabel.AutoSize = false;
 
                 // pnlGame.Controls.Add(gridLabel);
             }
@@ -435,24 +506,45 @@ namespace Students_vs_teachers
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
         private void tmrGameTick_Tick(object sender, EventArgs e)
         {
+            gameTicks += 1;
+
             // create new enemy if necessary
-            enemySpawnCount = (enemySpawnCount + 1) % 32;
-            if (enemySpawnCount == 0)
+            var enemySpawnTicks = 0;
+            var roundNum = 0;
+            foreach (var round in enemyRounds)
             {
-                var enemyGridLocation = GetMapCoordinateForId(enemyPath[0].TileIds[0]);
+                roundNum += 1;
+                enemySpawnTicks += ROUND_DELAY;
 
-                var enemyImage = new PictureBox();
-                var newEnemy = new Enemy(activeEnemies.Count, 1, enemyImage, 0, GetEnemyMaxHealth(0));
-                activeEnemies.Add(newEnemy);
+                foreach (var wave in round)
+                {
+                    foreach (var enemyType in wave.Enemies)
+                    {
+                        enemySpawnTicks += wave.Spread;
+                        if (enemySpawnTicks == gameTicks)
+                        {
+                            // spawn enemy!
+                            var enemyGridLocation = GetMapCoordinateForId(enemyPath[0].TileIds[0]);
 
-                enemyImage.Size = new Size(Properties.Resources.teacher0_right.Width, Properties.Resources.teacher0_right.Height);
-                enemyImage.Location = new Point(enemyGridLocation.X, enemyGridLocation.Y + (int)(0.5 * GRID_LENGTH));
-                enemyImage.BackgroundImage = ImageRotation.GetEnemyImage(newEnemy, enemyPath[0].Orientation);
-                enemyImage.Visible = true;
-                enemyImage.BackgroundImageLayout = ImageLayout.None;
+                            var enemyImage = new PictureBox();
+                            var newEnemy = new Enemy(activeEnemies.Count, enemyType, enemyImage, 0, GetEnemyMaxHealth(0));
+                            activeEnemies.Add(newEnemy);
 
-                Controls.Add(enemyImage);
-                enemyImage.BringToFront();
+                            enemyImage.Size = new Size(Properties.Resources.teacher0_right.Width, Properties.Resources.teacher0_right.Height);
+                            enemyImage.Location = new Point(enemyGridLocation.X, enemyGridLocation.Y + (int)(0.5 * GRID_LENGTH));
+                            enemyImage.BackgroundImage = ImageRotation.GetEnemyImage(newEnemy, enemyPath[0].Orientation);
+                            enemyImage.Visible = true;
+                            enemyImage.BackgroundImageLayout = ImageLayout.None;
+
+                            Controls.Add(enemyImage);
+                            enemyImage.BringToFront();
+
+                            lblRound.Text = $"Round: {roundNum}/{enemyRounds.Length}";
+                        }
+                    }
+                }
+
+                enemySpawnCount += ROUND_DELAY;
             }
 
             // move all enemies
