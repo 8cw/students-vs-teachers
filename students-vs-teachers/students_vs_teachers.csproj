@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enemy.cs" />
+    <Compile Include="EnemyInfo.cs" />
     <Compile Include="FontLoader.cs" />
     <Compile Include="FrmGame.cs">
       <SubType>Form</SubType>
@@ -94,6 +95,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SoundPlayer.cs" />
     <Compile Include="TowerInfo.cs" />
+    <Compile Include="TowerPlaced.cs" />
     <EmbeddedResource Include="FrmGame.resx">
       <DependentUpon>FrmGame.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -213,6 +215,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\placement_circle_illegal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher1_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher1_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher1_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher1_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tower_attack.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -22,6 +22,7 @@ namespace Students_vs_teachers
         private static readonly Dictionary<int, Bitmap[]> EnemyImages = new Dictionary<int, Bitmap[]>()
         {
             { 0, new Bitmap[] { Properties.Resources.teacher0_right, Properties.Resources.teacher0_down, Properties.Resources.teacher0_left, Properties.Resources.teacher0_up } },
+            { 1, new Bitmap[] { Properties.Resources.teacher1_right, Properties.Resources.teacher1_down, Properties.Resources.teacher1_left, Properties.Resources.teacher1_up } },
         };
 
         /// <summary>

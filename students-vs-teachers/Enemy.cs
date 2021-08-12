@@ -8,7 +8,7 @@
 using System.Windows.Forms;
 
 /// <summary>
-/// A grid in the game.
+/// An enemy in the game.
 /// </summary>
 internal struct Enemy
 {
@@ -33,18 +33,25 @@ internal struct Enemy
     public readonly int EnemyDistance;
 
     /// <summary>
+    /// The amount of health the enemy has.
+    /// </summary>
+    public readonly int Health;
+
+    /// <summary>
     /// Initializes a new instance of the <see cref="Enemy"/> struct.
     /// </summary>
     /// <param name="id">The id of the enemy.</param>
     /// <param name="enemyType">The type of enemy.</param>
-    /// <param name="enemyImage"> The image of the enemy.</param>
-    /// <param name="enemyDistance"> How far the enemy has travelled since the start.</param>
-    public Enemy(int id, int enemyType, PictureBox enemyImage, int enemyDistance)
+    /// <param name="enemyImage">The image of the enemy.</param>
+    /// <param name="enemyDistance">How far the enemy has travelled since the start.</param>
+    /// <param name="health">The amount of health the enemy has.</param>
+    public Enemy(int id, int enemyType, PictureBox enemyImage, int enemyDistance, int health)
     {
         Id = id;
         EnemyType = enemyType;
         EnemyImage = enemyImage;
         EnemyDistance = enemyDistance;
+        Health = health;
     }
 
     /// <summary>
