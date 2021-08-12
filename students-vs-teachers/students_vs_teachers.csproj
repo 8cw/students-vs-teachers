@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Enemy.cs" />
     <Compile Include="EnemyInfo.cs" />
+    <Compile Include="EnemyWave.cs" />
     <Compile Include="FontLoader.cs" />
     <Compile Include="FrmGame.cs">
       <SubType>Form</SubType>

@@ -201,6 +201,7 @@ namespace Students_vs_teachers
             // pnlGame
             // 
             this.pnlGame.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlGame.BackgroundImage = global::Students_vs_teachers.Properties.Resources._01_map;
             resources.ApplyResources(this.pnlGame, "pnlGame");
             this.pnlGame.Controls.Add(this.pbTowerRange);
             this.pnlGame.Name = "pnlGame";
