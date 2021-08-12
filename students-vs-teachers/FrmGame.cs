@@ -66,8 +66,8 @@ namespace Students_vs_teachers
         {
             { 0, new TowerInfo { Name = "Year 9", Cost = 100, Damage = 50, AttackInterval = 15, TowerRange = 2, TowerImage = Properties.Resources.tower00 } },
             { 1, new TowerInfo { Name = "Year 10", Cost = 175, Damage = 75, AttackInterval = 15, TowerRange = 3, TowerImage = Properties.Resources.tower01 } },
-            { 2, new TowerInfo { Name = "Year 11", Cost = 600, Damage = 125, AttackInterval = 6, TowerRange = 2, TowerImage = Properties.Resources.tower02 } },
-            { 3, new TowerInfo { Name = "Year 13", Cost = 800, Damage = 8, AttackInterval = 5, TowerRange = 4, TowerImage = Properties.Resources.tower03 } },
+            { 2, new TowerInfo { Name = "Year 11", Cost = 225, Damage = 75, AttackInterval = 8, TowerRange = 2, TowerImage = Properties.Resources.tower02 } },
+            { 3, new TowerInfo { Name = "Year 13", Cost = 400, Damage = 125, AttackInterval = 12, TowerRange = 4, TowerImage = Properties.Resources.tower03 } },
             { 4, new TowerInfo { Name = "Year 12", Cost = 1000, Damage = 12, AttackInterval = 4, TowerRange = 5, TowerImage = Properties.Resources.tower04 } },
             { 5, new TowerInfo { Name = "Prefect", Cost = 2000, Damage = 18, AttackInterval = 3, TowerRange = 7, TowerImage = Properties.Resources.tower05 } },
             { 6, new TowerInfo { Name = "Head Boy", Cost = 2500, Damage = 20, AttackInterval = 2, TowerRange = 4, TowerImage = Properties.Resources.tower06 } },
