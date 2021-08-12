@@ -458,7 +458,7 @@ namespace Students_vs_teachers
             {
                 var oldEnemy = activeEnemies[i];
 
-                var newEnemy = new Enemy(oldEnemy.Id, oldEnemy.EnemyType, oldEnemy.EnemyImage, oldEnemy.EnemyDistance + 2, oldEnemy.Health);
+                var newEnemy = new Enemy(oldEnemy.Id, oldEnemy.EnemyType, oldEnemy.EnemyImage, oldEnemy.EnemyDistance + 4, oldEnemy.Health);
                 activeEnemies[i] = newEnemy;
 
                 var newEnemyLocationTest = GetEnemyLocation(newEnemy);
