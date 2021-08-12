@@ -26,6 +26,7 @@ namespace Students_vs_teachers
             { 2, new Bitmap[] { Properties.Resources.teacher2_right, Properties.Resources.teacher2_down, Properties.Resources.teacher2_left, Properties.Resources.teacher2_up } },
             { 3, new Bitmap[] { Properties.Resources.teacher3_right, Properties.Resources.teacher3_down, Properties.Resources.teacher3_left, Properties.Resources.teacher3_up } },
             { 4, new Bitmap[] { Properties.Resources.teacher4_right, Properties.Resources.teacher4_down, Properties.Resources.teacher4_left, Properties.Resources.teacher4_up } },
+            { 5, new Bitmap[] { Properties.Resources.teacher5_right, Properties.Resources.teacher5_down, Properties.Resources.teacher5_left, Properties.Resources.teacher5_up } },
         };
 
         /// <summary>
