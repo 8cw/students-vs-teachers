@@ -641,6 +641,30 @@ namespace Students_vs_teachers
             }
         }
 
+        /// <summary>
+        /// Cancels tower placement.
+        /// </summary>
+        private void CancelPlacemet()
+        {
+            towerPlacing = null;
+            tmrTowerPlacement.Stop();
+            pbCancelPlacement.Visible = false;
+            pbTowerRange.Visible = false;
+
+            // hide the grid hovered over if it exists
+            var gridId = GetCurrentHoveredGrid();
+            if (gridId < 0 || gridId > grid.Length)
+            {
+                return;
+            }
+
+            var gridSquare = grid[gridId];
+            if (gridSquare.GridImage.Visible)
+            {
+                gridSquare.GridImage.Visible = false;
+            }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
         private void tmrTowerPlacement_Tick(object sender, EventArgs e)
         {
