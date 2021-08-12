@@ -621,6 +621,39 @@
   <data name="pnlGame.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
+  <data name="lblInfo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>GAMERIA, 12pt</value>
+  </data>
+  <data name="lblInfo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>490, 15</value>
+  </data>
+  <data name="lblInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1000, 13</value>
+  </data>
+  <data name="lblInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblInfo.Text" xml:space="preserve">
+    <value>Students from New Zealand report the greatest happiness at school in the world.</value>
+  </data>
+  <data name="lblInfo.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lblInfo.Name" xml:space="preserve">
+    <value>lblInfo</value>
+  </data>
+  <data name="&gt;&gt;lblInfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblInfo.Parent" xml:space="preserve">
+    <value>pnlGame</value>
+  </data>
+  <data name="&gt;&gt;lblInfo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="pbTowerRange.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
@@ -649,7 +682,7 @@
     <value>pnlGame</value>
   </data>
   <data name="&gt;&gt;pbTowerRange.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="pnlGame.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
