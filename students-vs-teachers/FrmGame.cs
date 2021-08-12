@@ -69,15 +69,20 @@ namespace Students_vs_teachers
             { 7, new TowerInfo { Name = "Top 6", Cost = 4000, Damage = 40, AttackInterval = 3, TowerRange = 5, TowerImage = Properties.Resources.tower07 } },
         };
 
+        private readonly Dictionary<int, EnemyInfo> enemyInfo = new Dictionary<int, EnemyInfo>()
+        {
+            { 0, new EnemyInfo { EnemyType = 0, EnemyHealth = 100, EnemyReward = 5 } },
+        };
+
         private List<Enemy> activeEnemies = new List<Enemy>();
         private int round = 0;
         private uint enemySpawnCount = 0;
         private int? towerPlacing = null;
 
         /// <summary>
-        /// A HashSet that contains all the grid IDs that the user has placed something down on.
+        /// A List that contains all the towers that the user has placed down.
         /// </summary>
-        private HashSet<int> gridIdsConsumed = new HashSet<int>();
+        private List<TowerPlaced> towersPlaced = new List<TowerPlaced>();
         private int money = 9999;
 
         private Timer tmrGameTick = new Timer();
@@ -174,36 +179,6 @@ namespace Students_vs_teachers
             var gridCoordinate = GetGridCoordinatesForId(id);
 
             return new Point(gridCoordinate.X * GRID_LENGTH, gridCoordinate.Y * GRID_LENGTH);
-        }
-
-        /// <summary>
-        /// Retrieves the path the enemy is currently travelling on.
-        /// </summary>
-        /// <param name="enemy">The enemy to retrieve the path for.</param>
-        /// <returns>The path the enemy is travelling on, or null if the enemy is not travelling on a path.</returns>
-        private PathOrientation? GetEnemyPath(Enemy enemy)
-        {
-            var tileNum = enemy.EnemyDistance / GRID_LENGTH;
-
-            var tilesTravelled = 0;
-            for (var i = 0; i < enemyPath.Length; i += 1)
-            {
-                var path = enemyPath[i];
-
-                if (path.TileIds.Length > (tileNum - tilesTravelled))
-                {
-                    // somewhere in this list is the element we want
-                    return path;
-                }
-                else
-                {
-                    // must be next path sequence.
-                    tilesTravelled += path.TileIds.Length;
-                }
-            }
-
-            // player is out of bounds.
-            return null;
         }
 
         /// <summary>
@@ -389,9 +364,55 @@ namespace Students_vs_teachers
             pbTowerRange.Visible = true;
         }
 
-        private void EnemyDeath(Enemy enemy)
+        private void EnemyOutOfBounds(Enemy enemy)
         {
             enemy.EnemyImage.Dispose();
+        }
+
+        /// <summary>
+        /// Handles the death of an Enemy.
+        /// </summary>
+        /// <param name="enemyType">The type ID of the enemy.</param>
+        private void EnemyDeath(int enemyType)
+        {
+            AddMoney(enemyInfo[enemyType].EnemyReward);
+        }
+
+        /// <summary>
+        /// Returns the amount of max health an enemy has.
+        /// </summary>
+        /// <param name="enemyType">The ID of the enemy.</param>
+        /// <returns>The amount of HP the enemy has at a maximum.</returns>
+        private int GetEnemyMaxHealth(int enemyType)
+        {
+            return enemyInfo[enemyType].EnemyHealth;
+        }
+
+        /// <summary>
+        /// Attacks an enemy, returning the new Enemy.
+        /// </summary>
+        /// <param name="enemy">The enemy to attack.</param>
+        /// <param name="attackTowerId">The ID of the tower attacking.</param>
+        /// <returns>The new enemy to save, or null if the enemy should die.</returns>
+        private Enemy? AttackEnemy(Enemy enemy, int attackTowerId)
+        {
+            var towerDamage = towerCosts[attackTowerId].Damage;
+
+            // check if we need to decrease enemy type by one
+            if (enemy.Health - towerDamage <= 0)
+            {
+                EnemyDeath(enemy.EnemyType);
+
+                if (enemy.EnemyType == 0)
+                {
+                    return null;
+                }
+
+                return new Enemy(enemy.Id, enemy.EnemyType - 1, enemy.EnemyImage, enemy.EnemyDistance, GetEnemyMaxHealth(enemy.EnemyType - 1));
+            }
+
+            // return enemy, with more damage
+            return new Enemy(enemy.Id, enemy.EnemyType, enemy.EnemyImage, enemy.EnemyDistance, enemy.Health - towerDamage);
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
@@ -419,7 +440,7 @@ namespace Students_vs_teachers
                 var enemyGridLocation = GetMapCoordinateForId(enemyPath[0].TileIds[0]);
 
                 var enemyImage = new PictureBox();
-                var newEnemy = new Enemy(activeEnemies.Count, 0, enemyImage, 0);
+                var newEnemy = new Enemy(activeEnemies.Count, 0, enemyImage, 0, GetEnemyMaxHealth(0));
                 activeEnemies.Add(newEnemy);
 
                 enemyImage.Size = new Size(Properties.Resources.teacher0_right.Width, Properties.Resources.teacher0_right.Height);
@@ -437,22 +458,21 @@ namespace Students_vs_teachers
             {
                 var oldEnemy = activeEnemies[i];
 
-                var newEnemy = new Enemy(oldEnemy.Id, oldEnemy.EnemyType, oldEnemy.EnemyImage, oldEnemy.EnemyDistance + 2);
+                var newEnemy = new Enemy(oldEnemy.Id, oldEnemy.EnemyType, oldEnemy.EnemyImage, oldEnemy.EnemyDistance + 2, oldEnemy.Health);
                 activeEnemies[i] = newEnemy;
 
-                var newEnemyPath = GetEnemyPath(newEnemy);
                 var newEnemyLocationTest = GetEnemyLocation(newEnemy);
 
                 if (!newEnemyLocationTest.HasValue)
                 {
                     // enemy has gone out of boundaries
-                    EnemyDeath(oldEnemy);
+                    EnemyOutOfBounds(oldEnemy);
 
                     var n = activeEnemies.Count - 1;
                     activeEnemies[i] = activeEnemies[n];
                     activeEnemies.RemoveAt(n);
 
-                    i += 1;
+                    // i += 1;
                     continue;
                 }
 
@@ -472,6 +492,80 @@ namespace Students_vs_teachers
                     newEnemy.EnemyImage.BackgroundImage = enemyImage;
                 }
             }
+
+            // attack enemies
+            for (var i = 0; i < towersPlaced.Count; i += 1)
+            {
+                var tower = towersPlaced[i];
+                if (tower.AttackDebounce == towerCosts[tower.TowerId].AttackInterval)
+                {
+                    var towerLocation = GetMapCoordinateForId(tower.GridId);
+
+                    // attack!
+                    int? closestEnemyIndex = null;
+                    var closestEnemyDistance = int.MaxValue;
+                    for (var j = 0; j < activeEnemies.Count; j += 1)
+                    {
+                        var enemyCheck = activeEnemies[j];
+                        var distance = (int)Math.Pow(enemyCheck.EnemyImage.Location.X - towerLocation.X, 2) + (int)Math.Pow(enemyCheck.EnemyImage.Location.Y - towerLocation.Y, 2);
+                        if (distance < closestEnemyDistance)
+                        {
+                            closestEnemyDistance = distance;
+                            closestEnemyIndex = j;
+                        }
+                    }
+
+                    // check there is an enemy that exists
+                    if (!closestEnemyIndex.HasValue)
+                    {
+                        continue;
+                    }
+
+                    var closestEnemy = activeEnemies[closestEnemyIndex ?? 0];
+
+                    // convert grid attack range to square units
+                    var towerAttackRange = (int)Math.Pow(towerCosts[tower.TowerId].TowerRange * GRID_LENGTH, 2);
+
+                    // validate they are in range
+                    if (closestEnemyDistance > towerAttackRange)
+                    {
+                        continue;
+                    }
+
+                    // attack enemy!
+                    var newEnemyCheck = AttackEnemy(closestEnemy, tower.TowerId);
+                    if (!newEnemyCheck.HasValue)
+                    {
+                        // we killed the enemy
+                        EnemyOutOfBounds(closestEnemy);
+
+                        var n = activeEnemies.Count - 1;
+                        activeEnemies[closestEnemyIndex ?? 0] = activeEnemies[n];
+                        activeEnemies.RemoveAt(n);
+                    }
+                    else
+                    {
+                        // we damaged the enemy
+                        activeEnemies[closestEnemyIndex ?? 0] = newEnemyCheck.Value;
+                    }
+
+                    towersPlaced[i] = new TowerPlaced
+                    {
+                        GridId = tower.GridId,
+                        AttackDebounce = 0,
+                        TowerId = tower.TowerId,
+                    };
+                }
+                else
+                {
+                    towersPlaced[i] = new TowerPlaced
+                    {
+                        AttackDebounce = tower.AttackDebounce + 1,
+                        GridId = tower.GridId,
+                        TowerId = tower.TowerId,
+                    };
+                }
+            }
         }
 
         /// <summary>
@@ -486,13 +580,22 @@ namespace Students_vs_teachers
         }
 
         /// <summary>
+        /// Adds some money from a user and updates the money label.
+        /// </summary>
+        /// <param name="amount">The amount of money to add.</param>
+        private void AddMoney(int amount)
+        {
+            money += amount;
+            lblMoney.Text = $"Money: ${money}";
+        }
+
+        /// <summary>
         /// Removes some money from a user and updates the money label.
         /// </summary>
         /// <param name="amount">The amount of money to remove.</param>
         private void SubtractMoney(int amount)
         {
-            money -= amount;
-            lblMoney.Text = $"Money: ${money}";
+            AddMoney(-amount);
         }
 
         /// <summary>
@@ -539,7 +642,7 @@ namespace Students_vs_teachers
                     else
                     {
                         // make it red if we are placing on already placed tower:
-                        if (enemyPath.Any((path) => path.TileIds.Contains(gridId)) || blacklistedGridIds.Contains(gridId) || gridIdsConsumed.Contains(gridId))
+                        if (enemyPath.Any((path) => path.TileIds.Contains(gridId)) || blacklistedGridIds.Contains(gridId) || towersPlaced.Any((tower) => tower.GridId == gridId))
                         {
                             if (pbTowerRange.BackgroundImage != Properties.Resources.placement_circle_illegal)
                             {
@@ -559,7 +662,7 @@ namespace Students_vs_teachers
                 }
 
                 // hide (we are no longer selecting this grid square)
-                if (gridItem.GridImage.Visible && !gridIdsConsumed.Contains(gridItem.Id))
+                if (gridItem.GridImage.Visible && !towersPlaced.Any((tower) => tower.GridId == gridItem.Id))
                 {
                     gridItem.GridImage.Visible = false;
                 }
@@ -589,7 +692,7 @@ namespace Students_vs_teachers
             // check that we are not hovering over a grid already have an item
             // check that we are not placing on an invalid grid
             var gridId = GetCurrentHoveredGrid();
-            if (enemyPath.Any((path) => path.TileIds.Contains(gridId)) || blacklistedGridIds.Contains(gridId) || gridIdsConsumed.Contains(gridId))
+            if (enemyPath.Any((path) => path.TileIds.Contains(gridId)) || blacklistedGridIds.Contains(gridId) || towersPlaced.Any((tower) => tower.GridId == gridId))
             {
                 return;
             }
@@ -599,7 +702,12 @@ namespace Students_vs_teachers
 
             grid[gridId].GridImage.BackgroundImage = towerInfo.TowerImage;
             grid[gridId].GridImage.Visible = true;
-            gridIdsConsumed.Add(gridId);
+            towersPlaced.Add(new TowerPlaced
+            {
+                AttackDebounce = 0,
+                GridId = gridId,
+                TowerId = towerPlacing ?? 0,
+            });
             SoundPlayer.TowerPlacement.Play();
 
             // subtract money
