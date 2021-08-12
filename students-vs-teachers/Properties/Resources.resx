@@ -151,6 +151,18 @@
   <data name="teacher0_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\teacher0_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="teacher1_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\teacher1_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="teacher1_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\teacher1_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="teacher1_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\teacher1_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="teacher1_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\teacher1_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="tower00" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tower00.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -174,6 +186,9 @@
   </data>
   <data name="tower07" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tower07.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tower_attack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tower_attack.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="tower_placement" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tower_placement.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

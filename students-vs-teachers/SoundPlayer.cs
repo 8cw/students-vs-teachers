@@ -16,5 +16,10 @@ namespace Students_vs_teachers
         /// A "swoosh" sound effect for when tower item is placed.
         /// </summary>
         public static readonly System.Media.SoundPlayer TowerPlacement = new System.Media.SoundPlayer(Properties.Resources.tower_placement);
+
+        /// <summary>
+        /// A "ding" sound effect for when a tower attacks a teacher.
+        /// </summary>
+        public static readonly System.Media.SoundPlayer TowerAttack = new System.Media.SoundPlayer(Properties.Resources.tower_attack);
     }
 }

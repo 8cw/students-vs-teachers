@@ -59,9 +59,9 @@ namespace Students_vs_teachers
         private readonly int[] blacklistedGridIds = { };
         private readonly Dictionary<int, TowerInfo> towerCosts = new Dictionary<int, TowerInfo>()
         {
-            { 0, new TowerInfo { Name = "Year 9", Cost = 100, Damage = 1, AttackInterval = 3, TowerRange = 2, TowerImage = Properties.Resources.tower00 } },
-            { 1, new TowerInfo { Name = "Year 10", Cost = 250, Damage = 2, AttackInterval = 2, TowerRange = 3, TowerImage = Properties.Resources.tower01 } },
-            { 2, new TowerInfo { Name = "Year 11", Cost = 600, Damage = 6, AttackInterval = 6, TowerRange = 2, TowerImage = Properties.Resources.tower02 } },
+            { 0, new TowerInfo { Name = "Year 9", Cost = 100, Damage = 50, AttackInterval = 30, TowerRange = 2, TowerImage = Properties.Resources.tower00 } },
+            { 1, new TowerInfo { Name = "Year 10", Cost = 250, Damage = 75, AttackInterval = 30, TowerRange = 3, TowerImage = Properties.Resources.tower01 } },
+            { 2, new TowerInfo { Name = "Year 11", Cost = 600, Damage = 125, AttackInterval = 6, TowerRange = 2, TowerImage = Properties.Resources.tower02 } },
             { 3, new TowerInfo { Name = "Year 13", Cost = 800, Damage = 8, AttackInterval = 5, TowerRange = 4, TowerImage = Properties.Resources.tower03 } },
             { 4, new TowerInfo { Name = "Year 12", Cost = 1000, Damage = 12, AttackInterval = 4, TowerRange = 5, TowerImage = Properties.Resources.tower04 } },
             { 5, new TowerInfo { Name = "Prefect", Cost = 2000, Damage = 18, AttackInterval = 3, TowerRange = 7, TowerImage = Properties.Resources.tower05 } },
@@ -71,7 +71,8 @@ namespace Students_vs_teachers
 
         private readonly Dictionary<int, EnemyInfo> enemyInfo = new Dictionary<int, EnemyInfo>()
         {
-            { 0, new EnemyInfo { EnemyType = 0, EnemyHealth = 100, EnemyReward = 5 } },
+            { 0, new EnemyInfo { EnemyType = 0, EnemyHealth = 100, EnemyReward = 5, EnemyLives = 1, } },
+            { 1, new EnemyInfo { EnemyType = 1, EnemyHealth = 150, EnemyReward = 5, EnemyLives = 2, } },
         };
 
         private List<Enemy> activeEnemies = new List<Enemy>();
@@ -83,7 +84,8 @@ namespace Students_vs_teachers
         /// A List that contains all the towers that the user has placed down.
         /// </summary>
         private List<TowerPlaced> towersPlaced = new List<TowerPlaced>();
-        private int money = 9999;
+        private int money = 225;
+        private int lives = 250;
 
         private Timer tmrGameTick = new Timer();
         private Timer tmrTowerPlacement = new Timer();
@@ -440,7 +442,7 @@ namespace Students_vs_teachers
                 var enemyGridLocation = GetMapCoordinateForId(enemyPath[0].TileIds[0]);
 
                 var enemyImage = new PictureBox();
-                var newEnemy = new Enemy(activeEnemies.Count, 0, enemyImage, 0, GetEnemyMaxHealth(0));
+                var newEnemy = new Enemy(activeEnemies.Count, 1, enemyImage, 0, GetEnemyMaxHealth(0));
                 activeEnemies.Add(newEnemy);
 
                 enemyImage.Size = new Size(Properties.Resources.teacher0_right.Width, Properties.Resources.teacher0_right.Height);
@@ -471,6 +473,8 @@ namespace Students_vs_teachers
                     var n = activeEnemies.Count - 1;
                     activeEnemies[i] = activeEnemies[n];
                     activeEnemies.RemoveAt(n);
+
+                    SubtractLives(enemyInfo[newEnemy.EnemyType].EnemyLives);
 
                     // i += 1;
                     continue;
@@ -549,6 +553,8 @@ namespace Students_vs_teachers
                         activeEnemies[closestEnemyIndex ?? 0] = newEnemyCheck.Value;
                     }
 
+                    SoundPlayer.TowerAttack.Play();
+
                     towersPlaced[i] = new TowerPlaced
                     {
                         GridId = tower.GridId,
@@ -596,6 +602,19 @@ namespace Students_vs_teachers
         private void SubtractMoney(int amount)
         {
             AddMoney(-amount);
+        }
+
+        /// <summary>
+        /// Removes some lives from a player.
+        /// </summary>
+        /// <param name="amount">The amount of lives to subtract.</param>
+        private void SubtractLives(int amount)
+        {
+            // clamp amount between lives-amount
+            lives -= amount > lives ? lives : amount;
+            lblLives.Text = $"Lives: {lives}";
+
+            // todo: handle no move lives
         }
 
         /// <summary>

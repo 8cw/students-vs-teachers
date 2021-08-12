@@ -24,4 +24,9 @@ public struct EnemyInfo
     /// The amount of money to reward after killing this Enemy.
     /// </summary>
     public int EnemyReward;
+
+    /// <summary>
+    /// The amount of lives that an enemy will take.
+    /// </summary>
+    public int EnemyLives;
 }
