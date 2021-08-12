@@ -122,7 +122,7 @@ namespace Students_vs_teachers
                 new EnemyWave { Spread = 30, Enemies = new int[] { 4, 4, 4, 4, 4 }, },
                 new EnemyWave { Spread = 20, Enemies = new int[] { 4, 3, 4, 3, 4 }, },
                 new EnemyWave { Spread = 4, Enemies = new int[] { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 }, },
-                new EnemyWave { Spread = 8, Enemies = new int[] { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 }, },
+                new EnemyWave { Spread = 12, Enemies = new int[] { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 }, },
             },
             new EnemyWave[]
             {
@@ -131,8 +131,8 @@ namespace Students_vs_teachers
             },
             new EnemyWave[]
             {
+                new EnemyWave { Spread = 12, Enemies = new int[] { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 }, },
                 new EnemyWave { Spread = 8, Enemies = new int[] { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 }, },
-                new EnemyWave { Spread = 6, Enemies = new int[] { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 }, },
             },
             new EnemyWave[]
             {
