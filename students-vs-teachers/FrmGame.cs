@@ -67,8 +67,8 @@ namespace Students_vs_teachers
             { 0, new TowerInfo { Name = "Year 9", Cost = 100, Damage = 50, AttackInterval = 15, TowerRange = 2, TowerImage = Properties.Resources.tower00 } },
             { 1, new TowerInfo { Name = "Year 10", Cost = 175, Damage = 75, AttackInterval = 15, TowerRange = 3, TowerImage = Properties.Resources.tower01 } },
             { 2, new TowerInfo { Name = "Year 11", Cost = 225, Damage = 75, AttackInterval = 8, TowerRange = 3, TowerImage = Properties.Resources.tower02 } },
-            { 3, new TowerInfo { Name = "Year 13", Cost = 400, Damage = 125, AttackInterval = 10, TowerRange = 4, TowerImage = Properties.Resources.tower03 } },
-            { 4, new TowerInfo { Name = "Year 12", Cost = 1000, Damage = 12, AttackInterval = 4, TowerRange = 5, TowerImage = Properties.Resources.tower04 } },
+            { 3, new TowerInfo { Name = "Year 13", Cost = 400, Damage = 150, AttackInterval = 4, TowerRange = 4, TowerImage = Properties.Resources.tower03 } },
+            { 4, new TowerInfo { Name = "Year 12", Cost = 600, Damage = 500, AttackInterval = 30, TowerRange = 12, TowerImage = Properties.Resources.tower04 } },
             { 5, new TowerInfo { Name = "Prefect", Cost = 2000, Damage = 18, AttackInterval = 3, TowerRange = 7, TowerImage = Properties.Resources.tower05 } },
             { 6, new TowerInfo { Name = "Head Boy", Cost = 2500, Damage = 20, AttackInterval = 2, TowerRange = 4, TowerImage = Properties.Resources.tower06 } },
             { 7, new TowerInfo { Name = "Top 6", Cost = 4000, Damage = 40, AttackInterval = 3, TowerRange = 5, TowerImage = Properties.Resources.tower07 } },
@@ -79,7 +79,7 @@ namespace Students_vs_teachers
             { 0, new EnemyInfo { EnemyType = 0, EnemyHealth = 50, EnemyReward = 3, EnemyLives = 2, } },
             { 1, new EnemyInfo { EnemyType = 1, EnemyHealth = 100, EnemyReward = 6, EnemyLives = 5, } },
             { 2, new EnemyInfo { EnemyType = 2, EnemyHealth = 200, EnemyReward = 14, EnemyLives = 12, } },
-            { 3, new EnemyInfo { EnemyType = 3, EnemyHealth = 400, EnemyReward = 22, EnemyLives = 30, } },
+            { 3, new EnemyInfo { EnemyType = 3, EnemyHealth = 400, EnemyReward = 26, EnemyLives = 30, } },
         };
 
         private readonly EnemyWave[][] enemyRounds = new EnemyWave[][]
@@ -107,6 +107,12 @@ namespace Students_vs_teachers
                 new EnemyWave { Spread = 18, Enemies = new int[] { 3, 3, }, },
                 new EnemyWave { Spread = 6, Enemies = new int[] { 2, 2, 2, }, },
                 new EnemyWave { Spread = 18, Enemies = new int[] { 3, 3, }, },
+            },
+            new EnemyWave[]
+            {
+                new EnemyWave { Spread = 10, Enemies = new int[] { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 }, },
+                new EnemyWave { Spread = 5, Enemies = new int[] { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 }, },
+                new EnemyWave { Spread = 2, Enemies = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, }, },
             },
         };
 
