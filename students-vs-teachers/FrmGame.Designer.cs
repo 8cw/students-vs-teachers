@@ -191,7 +191,7 @@ namespace Students_vs_teachers
             this.btnSettings.TabStop = false;
             this.btnSettings.UseVisualStyleBackColor = true;
             // 
-            // pbTowerRange
+            // btnToggleState
             // 
             resources.ApplyResources(this.btnToggleState, "btnToggleState");
             this.btnToggleState.Name = "btnToggleState";
