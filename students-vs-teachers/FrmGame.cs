@@ -23,7 +23,7 @@ namespace Students_vs_teachers
         /// <summary>
         /// The amount of game ticks between each round.
         /// </summary>
-        private const int ROUND_DELAY = 120;
+        private const int ROUND_DELAY = 240;
 
         private readonly Grid[] grid = new Grid[1920];
         private readonly PathOrientation[] enemyPath =
@@ -164,7 +164,7 @@ namespace Students_vs_teachers
         /// </summary>
         private List<TowerPlaced> towersPlaced = new List<TowerPlaced>();
         private int money = 225;
-        private int lives = 150;
+        private int lives = 200;
 
         private Timer tmrGameTick = new Timer();
         private Timer tmrTowerPlacement = new Timer();
@@ -556,6 +556,20 @@ namespace Students_vs_teachers
                             lblRound.Text = $"Round: {roundNum}/{enemyRounds.Length}";
                             lblInfo.Text = educationalMessages[roundNum - 1];
                         }
+                        else if (gameTicks > enemySpawnTicks && activeEnemies.Count == 0)
+                        {
+                            // player defeated all enemies
+                            tmrGameTick.Stop();
+                            towerPlacing = null;
+                            tmrTowerPlacement.Stop();
+                            pbCancelPlacement.Visible = false;
+                            pbTowerRange.Visible = false;
+
+                            // display win screen
+                            var frmWin = new FrmGameWin();
+                            Dispose();
+                            frmWin.ShowDialog();
+                        }
                     }
                 }
             }
@@ -719,6 +733,19 @@ namespace Students_vs_teachers
             lblLives.Text = $"Lives: {lives}";
 
             // todo: handle no move lives
+            if (lives == 0)
+            {
+                tmrGameTick.Stop();
+                towerPlacing = null;
+                tmrTowerPlacement.Stop();
+                pbCancelPlacement.Visible = false;
+                pbTowerRange.Visible = false;
+
+                // display death screen
+                var frmLose = new FrmGameLose();
+                Dispose();
+                frmLose.ShowDialog();
+            }
         }
 
         /// <summary>
