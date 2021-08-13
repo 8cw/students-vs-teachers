@@ -49,8 +49,8 @@ namespace Students_vs_teachers
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnToggleState = new System.Windows.Forms.Button();
             this.pnlGame = new System.Windows.Forms.Panel();
-            this.pbTowerRange = new System.Windows.Forms.PictureBox();
             this.lblInfo = new System.Windows.Forms.Label();
+            this.pbTowerRange = new System.Windows.Forms.PictureBox();
             this.pnlMenu.SuspendLayout();
             this.pnlTowers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancelPlacement)).BeginInit();
@@ -208,17 +208,17 @@ namespace Students_vs_teachers
             this.pnlGame.Controls.Add(this.pbTowerRange);
             this.pnlGame.Name = "pnlGame";
             // 
+            // lblInfo
+            // 
+            resources.ApplyResources(this.lblInfo, "lblInfo");
+            this.lblInfo.Name = "lblInfo";
+            // 
             // pbTowerRange
             // 
             this.pbTowerRange.BackgroundImage = global::Students_vs_teachers.Properties.Resources.placement_circle;
             resources.ApplyResources(this.pbTowerRange, "pbTowerRange");
             this.pbTowerRange.Name = "pbTowerRange";
             this.pbTowerRange.TabStop = false;
-            // 
-            // lblInfo
-            // 
-            resources.ApplyResources(this.lblInfo, "lblInfo");
-            this.lblInfo.Name = "lblInfo";
             // 
             // FrmGame
             // 

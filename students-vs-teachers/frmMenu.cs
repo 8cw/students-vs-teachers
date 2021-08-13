@@ -36,6 +36,7 @@ namespace Students_vs_teachers
 
             var frmGame = new FrmGame();
             frmGame.ShowDialog();
+
             Dispose();
             Close();
         }

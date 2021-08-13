@@ -75,6 +75,18 @@
     <Compile Include="FrmGame.Designer.cs">
       <DependentUpon>FrmGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGameWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGameWin.Designer.cs">
+      <DependentUpon>FrmGameWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGameLose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGameLose.Designer.cs">
+      <DependentUpon>FrmGameLose.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmHelp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +112,12 @@
     <EmbeddedResource Include="FrmGame.resx">
       <DependentUpon>FrmGame.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGameWin.resx">
+      <DependentUpon>FrmGameWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGameLose.resx">
+      <DependentUpon>FrmGameLose.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHelp.resx">
       <DependentUpon>FrmHelp.cs</DependentUpon>
