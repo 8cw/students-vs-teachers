@@ -122,7 +122,7 @@ namespace Students_vs_teachers
                 new EnemyWave { Spread = 30, Enemies = new int[] { 4, 4, 4, 4, 4 }, },
                 new EnemyWave { Spread = 20, Enemies = new int[] { 4, 3, 4, 3, 4 }, },
                 new EnemyWave { Spread = 4, Enemies = new int[] { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 }, },
-                new EnemyWave { Spread = 8, Enemies = new int[] { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 }, },
+                new EnemyWave { Spread = 12, Enemies = new int[] { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 }, },
             },
             new EnemyWave[]
             {
@@ -131,8 +131,8 @@ namespace Students_vs_teachers
             },
             new EnemyWave[]
             {
+                new EnemyWave { Spread = 12, Enemies = new int[] { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 }, },
                 new EnemyWave { Spread = 8, Enemies = new int[] { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 }, },
-                new EnemyWave { Spread = 6, Enemies = new int[] { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 }, },
             },
             new EnemyWave[]
             {
@@ -141,8 +141,20 @@ namespace Students_vs_teachers
             },
         };
 
+        private readonly string[] educationalMessages = new string[]
+        {
+            "Students from the Dominican Republic report the greatest happiness lives in the world.",
+            "Teachers from Switzerland have an average salary of $156,000 NZD per year.",
+            "If you work 40 hours a week up until 65 years, you will work just over 90,000 hours in your lifetime.",
+            "The University of Cambridge scams $470,000 NZD out of students for a Doctor of Business degree.",
+            "Teachers report having real lives outside of school.",
+            "Dental Hygienist is ranked as the worlds happiest job.",
+            "The Hamilton Boys High School cateen is a scam.",
+            "Google base salary for a software engineer is at $272,000 NZD.",
+            "Mr Tucker is the best teacher at HBHS.",
+        };
+
         private List<Enemy> activeEnemies = new List<Enemy>();
-        private uint enemySpawnCount = 0;
         private uint gameTicks = 0;
 
         private int? towerPlacing = null;
@@ -185,6 +197,8 @@ namespace Students_vs_teachers
             FontLoader.LoadFont(lblLives, 16.0F);
             FontLoader.LoadFont(lblRound, 16.0F);
             FontLoader.LoadFont(lblTowers, 16.0F);
+
+            FontLoader.LoadFont(lblInfo, 12.0F);
 
             // connect tower placements
             ConnectTowerEvents(0, pbTower0);
@@ -540,11 +554,10 @@ namespace Students_vs_teachers
                             enemyImage.BringToFront();
 
                             lblRound.Text = $"Round: {roundNum}/{enemyRounds.Length}";
+                            lblInfo.Text = educationalMessages[roundNum - 1];
                         }
                     }
                 }
-
-                enemySpawnCount += ROUND_DELAY;
             }
 
             // move all enemies
@@ -568,7 +581,6 @@ namespace Students_vs_teachers
 
                     SubtractLives(enemyInfo[newEnemy.EnemyType].EnemyLives);
 
-                    // i += 1;
                     continue;
                 }
 
