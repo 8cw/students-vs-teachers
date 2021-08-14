@@ -7,6 +7,8 @@
 
 namespace Students_vs_teachers
 {
+    using System;
+
     /// <summary>
     /// Handles game sounds.
     /// </summary>
@@ -15,11 +17,16 @@ namespace Students_vs_teachers
         /// <summary>
         /// A "swoosh" sound effect for when tower item is placed.
         /// </summary>
-        public static readonly System.Media.SoundPlayer TowerPlacement = new System.Media.SoundPlayer(Properties.Resources.tower_placement);
+        public static readonly Media TowerPlacement = new Media($@"{AppDomain.CurrentDomain.BaseDirectory}\Resources\tower_placement.wav");
 
         /// <summary>
         /// A "ding" sound effect for when a tower attacks a teacher.
         /// </summary>
-        public static readonly System.Media.SoundPlayer TowerAttack = new System.Media.SoundPlayer(Properties.Resources.tower_attack);
+        public static readonly Media TowerAttack = new Media($@"{AppDomain.CurrentDomain.BaseDirectory}\Resources\tower_attack.wav");
+
+        /// <summary>
+        /// The background song while the game is played.
+        /// </summary>
+        public static readonly Media BackgroundMusic = new Media($@"{AppDomain.CurrentDomain.BaseDirectory}\Resources\background_music.wav");
     }
 }
