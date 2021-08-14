@@ -59,5 +59,6 @@ Make it a 32x45 grid (32x32 pixels per grid square) = 1024x1440
 
 ##### Credits:
 
-- Tim Haywood - Sunshine Serenade (Background Music, https://www.youtube.com/watch?v=qLSooDsUqQE)
-- Tower Placement Sound Effect (https://www.youtube.com/watch?v=woxWw37zRVc)
+- Background Music — Tim Haywood - Sunshine Serenade (https://www.youtube.com/watch?v=qLSooDsUqQE)
+- Tower Placement Sound Effect — https://www.youtube.com/watch?v=woxWw37zRVc
+- Tower Attack Sound Effect — mixkit.co
