@@ -241,7 +241,7 @@
     <value>0</value>
   </data>
   <data name="pbTower7.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
+    <value>Stretch</value>
   </data>
   <data name="pbTower7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -268,7 +268,7 @@
     <value>1</value>
   </data>
   <data name="pbTower6.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
+    <value>Stretch</value>
   </data>
   <data name="pbTower6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -295,7 +295,7 @@
     <value>2</value>
   </data>
   <data name="pbTower5.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
+    <value>Stretch</value>
   </data>
   <data name="pbTower5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -322,7 +322,7 @@
     <value>3</value>
   </data>
   <data name="pbTower4.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
+    <value>Stretch</value>
   </data>
   <data name="pbTower4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -349,7 +349,7 @@
     <value>4</value>
   </data>
   <data name="pbTower3.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
+    <value>Stretch</value>
   </data>
   <data name="pbTower3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -376,7 +376,7 @@
     <value>5</value>
   </data>
   <data name="pbTower2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
+    <value>Stretch</value>
   </data>
   <data name="pbTower2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -403,7 +403,7 @@
     <value>6</value>
   </data>
   <data name="pbTower1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
+    <value>Stretch</value>
   </data>
   <data name="pbTower1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -430,7 +430,7 @@
     <value>7</value>
   </data>
   <data name="pbTower0.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
+    <value>Stretch</value>
   </data>
   <data name="pbTower0.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1376,9 +1376,6 @@
   </metadata>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1920, 1080</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Students VS Teachers - Game</value>

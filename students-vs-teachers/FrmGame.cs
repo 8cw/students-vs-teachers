@@ -696,28 +696,27 @@ namespace Students_vs_teachers
                             lblRound.Text = $"Round: {roundNum}/{enemyRounds.Length}";
                             lblInfo.Text = educationalMessages[roundNum - 1];
                         }
-                        else if (gameTicks > enemySpawnTicks && activeEnemies.Count == 0 && roundNum == enemyRounds.Length - 1)
-                        {
-                            Visible = false;
-
-                            // player defeated all enemies
-                            tmrGameTick.Stop();
-                            towerPlacing = null;
-                            tmrTowerPlacement.Stop();
-                            pbCancelPlacement.Visible = false;
-                            pbTowerRange.Visible = false;
-
-                            // display win screen
-                            var frmWin = new FrmGameWin();
-                            frmWin.ShowDialog();
-
-                            Dispose();
-                            Close();
-
-                            break;
-                        }
                     }
                 }
+            }
+
+            if (gameTicks > enemySpawnTicks && activeEnemies.Count == 0)
+            {
+                Visible = false;
+
+                // player defeated all enemies
+                tmrGameTick.Stop();
+                towerPlacing = null;
+                tmrTowerPlacement.Stop();
+                pbCancelPlacement.Visible = false;
+                pbTowerRange.Visible = false;
+
+                // display win screen
+                var frmWin = new FrmGameWin();
+                frmWin.ShowDialog();
+
+                Dispose();
+                Close();
             }
 
             // move all enemies
