@@ -103,6 +103,7 @@
     <Compile Include="Grid.cs" />
     <Compile Include="HelpPageInfo.cs" />
     <Compile Include="ImageRotation.cs" />
+    <Compile Include="Media.cs" />
     <Compile Include="PathOrientation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -224,7 +225,9 @@
     <None Include="Resources\teacher0_right.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\tower_placement.wav" />
+    <Content Include="Resources\tower_placement.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\placement_cancel.png" />
@@ -248,7 +251,9 @@
     <None Include="Resources\teacher1_left.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\tower_attack.wav" />
+    <Content Include="Resources\tower_attack.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\teacher2_left.png" />
@@ -309,6 +314,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\teacher6_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\background_music.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

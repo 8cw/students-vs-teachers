@@ -180,7 +180,7 @@ namespace Students_vs_teachers
             // create "tmrGameTick"
             tmrGameTick.Enabled = true;
             tmrGameTick.Interval = 33;
-            tmrGameTick.Tick += new System.EventHandler(tmrGameTick_Tick);
+            tmrGameTick.Tick += new EventHandler(tmrGameTick_Tick);
 
             // create "tmrTowerPlacement"
             tmrTowerPlacement.Enabled = false;
@@ -215,6 +215,9 @@ namespace Students_vs_teachers
             lblMoney.Text = $"Money: ${money}";
             lblRound.Text = $"Round: 0/{enemyRounds.Length}";
             lblLives.Text = $"Lives: {lives}";
+
+            // play background music
+            SoundPlayer.BackgroundMusic.Play(this);
         }
 
         /// <summary>
@@ -573,6 +576,8 @@ namespace Students_vs_teachers
 
                             Dispose();
                             Close();
+
+                            break;
                         }
                     }
                 }
@@ -675,7 +680,7 @@ namespace Students_vs_teachers
                         activeEnemies[closestEnemyIndex ?? 0] = newEnemyCheck.Value;
                     }
 
-                    SoundPlayer.TowerAttack.Play();
+                    SoundPlayer.TowerAttack.Play(this);
 
                     towersPlaced[i] = new TowerPlaced
                     {
@@ -862,7 +867,7 @@ namespace Students_vs_teachers
                 GridId = gridId,
                 TowerId = towerPlacing ?? 0,
             });
-            SoundPlayer.TowerPlacement.Play();
+            SoundPlayer.TowerPlacement.Play(this);
 
             // subtract money
             SubtractMoney(towerInfo.Cost);
