@@ -207,7 +207,7 @@ namespace Students_vs_teachers
             { 4, new TowerInfo { Name = "Year 12", Cost = 600, Damage = 500, AttackInterval = 30, TowerRange = 12, TowerImage = Properties.Resources.tower04 } },
             { 5, new TowerInfo { Name = "Prefect", Cost = 600, Damage = 400, AttackInterval = 4, TowerRange = 3, TowerImage = Properties.Resources.tower05 } },
             { 6, new TowerInfo { Name = "Head Boy", Cost = 900, Damage = 1000, AttackInterval = 10, TowerRange = 7, TowerImage = Properties.Resources.tower06 } },
-            { 7, new TowerInfo { Name = "Top 6", Cost = 5000, Damage = 1000000, AttackInterval = 2, TowerRange = 24, TowerImage = Properties.Resources.tower07 } },
+            { 7, new TowerInfo { Name = "Top 6", Cost = 5000, Damage = 1000000, AttackInterval = 3, TowerRange = 24, TowerImage = Properties.Resources.tower07 } },
         };
 
         private readonly Dictionary<int, EnemyInfo> enemyInfo = new Dictionary<int, EnemyInfo>()
@@ -218,7 +218,7 @@ namespace Students_vs_teachers
             { 3, new EnemyInfo { EnemyType = 3, EnemyHealth = 600, EnemyReward = 26, EnemyLives = 30, } },
             { 4, new EnemyInfo { EnemyType = 4, EnemyHealth = 2400, EnemyReward = 50, EnemyLives = 60, } },
             { 5, new EnemyInfo { EnemyType = 5, EnemyHealth = 8000, EnemyReward = 75, EnemyLives = 65, } },
-            { 6, new EnemyInfo { EnemyType = 6, EnemyHealth = 100000000, EnemyReward = 0, EnemyLives = 150, } },
+            { 6, new EnemyInfo { EnemyType = 6, EnemyHealth = 2000000000, EnemyReward = 0, EnemyLives = 150, } },
         };
 
         private readonly EnemyWave[][] enemyRounds = new EnemyWave[][]
