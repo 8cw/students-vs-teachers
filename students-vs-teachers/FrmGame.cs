@@ -282,12 +282,12 @@ namespace Students_vs_teachers
             "Students from the Dominican Republic report the greatest happiness lives in the world.",
             "Teachers from Switzerland have an average salary of $156,000 NZD per year.",
             "If you work 40 hours a week up until 65 years, you will work just over 90,000 hours in your lifetime.",
-            "The University of Cambridge scams $470,000 NZD out of students for a Doctor of Business degree.",
+            "The University of Cambridge charges $470,000 NZD out of students for a Doctor of Business degree.",
             "Teachers report having real lives outside of school.",
-            "Dental Hygienist is ranked as the worlds happiest job.",
-            "The Hamilton Boys High School cateen is a scam.",
-            "Google base salary for a software engineer is at $272,000 NZD.",
-            "Mr Tucker is the best teacher at HBHS.",
+            "Being a Dental Hygienist is ranked as the worlds happiest job.",
+            "Playing scary and violent video games help children master their fears in real life according to studies.",
+            "Google's base salary for a software engineer is at $272,000 NZD.",
+            "Video games can lessen disruptive behaviors and enhance positive development in ADHD children",
         };
 
         private List<Enemy> activeEnemies = new List<Enemy>();
