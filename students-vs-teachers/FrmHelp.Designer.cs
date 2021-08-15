@@ -32,6 +32,8 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
+            this.pbHelpMenu = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHelpMenu)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNext
@@ -55,10 +57,17 @@
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
+            // pbHelpMenu
+            // 
+            resources.ApplyResources(this.pbHelpMenu, "pbHelpMenu");
+            this.pbHelpMenu.Name = "pbHelpMenu";
+            this.pbHelpMenu.TabStop = false;
+            // 
             // FrmHelp
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pbHelpMenu);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnPrevious);
             this.Controls.Add(this.btnNext);
@@ -67,6 +76,7 @@
             this.Name = "FrmHelp";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmHelp_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbHelpMenu)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -76,5 +86,6 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.PictureBox pbHelpMenu;
     }
 }
