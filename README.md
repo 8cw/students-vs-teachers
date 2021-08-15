@@ -68,6 +68,7 @@ Make it a 32x45 grid (32x32 pixels per grid square) = 1024x1440
 - English Teacher — https://www.hbhs.school.nz/gallery/new-gallery-detail-page-2/#lightbox1-3
 - Technology Teacher — https://www.stuff.co.nz/waikato-times/business/93438545/hamilton-boys-high-school-students-taking-on-building-challenge
 - Science Teacher — Hamilton Boys High School Instagram
+- Dean — Hamilton Boys High School Instagram
 
 - Year 9 Tower — https://www.hbhs.school.nz/gallery/year-9-father-son-breakfast/#lightbox1-5
 - Year 10 Tower — https://www.hbhs.school.nz/school/top-school/academic-pathways/
