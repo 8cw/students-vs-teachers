@@ -21,6 +21,7 @@ namespace Students_vs_teachers
             new HelpPageInfo { Image = Properties.Resources._03_helpImage },
             new HelpPageInfo { Image = Properties.Resources._04_helpImage },
             new HelpPageInfo { Image = Properties.Resources._05_helpImage },
+            new HelpPageInfo { Image = Properties.Resources.credits },
         };
 
         private FrmHelpConstructor data;

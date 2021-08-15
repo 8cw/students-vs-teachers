@@ -233,6 +233,7 @@
     <None Include="Resources\05_helpImage.png" />
     <None Include="Resources\04_helpImage.png" />
     <None Include="Resources\03_helpImage.png" />
+    <None Include="Resources\credits.png" />
     <Content Include="Resources\tower_placement.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
