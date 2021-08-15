@@ -305,6 +305,8 @@ namespace Students_vs_teachers
         private Timer tmrGameTick = new Timer();
         private Timer tmrTowerPlacement = new Timer();
 
+        private bool gamePlaying = true;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FrmGame"/> class.
         /// Ran when the game form is created.
@@ -325,7 +327,6 @@ namespace Students_vs_teachers
 
             // add "gameria" font to buttons
             FontLoader.LoadFont(btnToggleState, 12.0F);
-            FontLoader.LoadFont(btnSettings, 12.0F);
             FontLoader.LoadFont(btnHelp, 12.0F);
 
             // add "gameria" font to labels
@@ -351,6 +352,7 @@ namespace Students_vs_teachers
             lblMoney.Text = $"Money: ${money}";
             lblRound.Text = $"Round: 0/{enemyRounds.Length}";
             lblLives.Text = $"Lives: {lives}";
+            lblInfo.Text = educationalMessages[0];
 
             // play background music
             SoundPlayer.BackgroundMusic.Play(this);
@@ -1019,6 +1021,27 @@ namespace Students_vs_teachers
         private void pbCancelPlacement_Click(object sender, EventArgs e)
         {
             CancelPlacemet();
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
+        private void btnToggleState_Click(object sender, EventArgs e)
+        {
+            gamePlaying = !gamePlaying;
+            if (gamePlaying)
+            {
+                btnToggleState.Text = "PAUSE";
+                tmrGameTick.Enabled = true;
+            }
+            else
+            {
+                btnToggleState.Text = "PLAY";
+                tmrGameTick.Enabled = false;
+
+                towerPlacing = null;
+                tmrTowerPlacement.Stop();
+                pbCancelPlacement.Visible = false;
+                pbTowerRange.Visible = false;
+            }
         }
     }
 }

@@ -35,10 +35,6 @@ namespace Students_vs_teachers
             this.lblLives = new System.Windows.Forms.Label();
             this.lblMoney = new System.Windows.Forms.Label();
             this.pnlTowers = new System.Windows.Forms.Panel();
-            this.lblTowers = new System.Windows.Forms.Label();
-            this.btnHelp = new System.Windows.Forms.Button();
-            this.btnSettings = new System.Windows.Forms.Button();
-            this.btnToggleState = new System.Windows.Forms.Button();
             this.pbCancelPlacement = new System.Windows.Forms.PictureBox();
             this.pbTower7 = new System.Windows.Forms.PictureBox();
             this.pbTower6 = new System.Windows.Forms.PictureBox();
@@ -48,6 +44,9 @@ namespace Students_vs_teachers
             this.pbTower2 = new System.Windows.Forms.PictureBox();
             this.pbTower1 = new System.Windows.Forms.PictureBox();
             this.pbTower0 = new System.Windows.Forms.PictureBox();
+            this.lblTowers = new System.Windows.Forms.Label();
+            this.btnHelp = new System.Windows.Forms.Button();
+            this.btnToggleState = new System.Windows.Forms.Button();
             this.pnlGame = new System.Windows.Forms.Panel();
             this.pbStone2 = new System.Windows.Forms.PictureBox();
             this.pbStone1 = new System.Windows.Forms.PictureBox();
@@ -119,7 +118,6 @@ namespace Students_vs_teachers
             this.pnlMenu.Controls.Add(this.lblMoney);
             this.pnlMenu.Controls.Add(this.pnlTowers);
             this.pnlMenu.Controls.Add(this.btnHelp);
-            this.pnlMenu.Controls.Add(this.btnSettings);
             this.pnlMenu.Controls.Add(this.btnToggleState);
             resources.ApplyResources(this.pnlMenu, "pnlMenu");
             this.pnlMenu.Name = "pnlMenu";
@@ -153,33 +151,6 @@ namespace Students_vs_teachers
             this.pnlTowers.Controls.Add(this.lblTowers);
             resources.ApplyResources(this.pnlTowers, "pnlTowers");
             this.pnlTowers.Name = "pnlTowers";
-            // 
-            // lblTowers
-            // 
-            resources.ApplyResources(this.lblTowers, "lblTowers");
-            this.lblTowers.Name = "lblTowers";
-            // 
-            // btnHelp
-            // 
-            resources.ApplyResources(this.btnHelp, "btnHelp");
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.TabStop = false;
-            this.btnHelp.UseVisualStyleBackColor = true;
-            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
-            // 
-            // btnSettings
-            // 
-            resources.ApplyResources(this.btnSettings, "btnSettings");
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.TabStop = false;
-            this.btnSettings.UseVisualStyleBackColor = true;
-            // 
-            // btnToggleState
-            // 
-            resources.ApplyResources(this.btnToggleState, "btnToggleState");
-            this.btnToggleState.Name = "btnToggleState";
-            this.btnToggleState.TabStop = false;
-            this.btnToggleState.UseVisualStyleBackColor = true;
             // 
             // pbCancelPlacement
             // 
@@ -244,6 +215,29 @@ namespace Students_vs_teachers
             resources.ApplyResources(this.pbTower0, "pbTower0");
             this.pbTower0.Name = "pbTower0";
             this.pbTower0.TabStop = false;
+            // 
+            // lblTowers
+            // 
+            resources.ApplyResources(this.lblTowers, "lblTowers");
+            this.lblTowers.Name = "lblTowers";
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(231)))), ((int)(((byte)(97)))));
+            resources.ApplyResources(this.btnHelp, "btnHelp");
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.TabStop = false;
+            this.btnHelp.UseVisualStyleBackColor = false;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
+            // btnToggleState
+            // 
+            this.btnToggleState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(231)))), ((int)(((byte)(97)))));
+            resources.ApplyResources(this.btnToggleState, "btnToggleState");
+            this.btnToggleState.Name = "btnToggleState";
+            this.btnToggleState.TabStop = false;
+            this.btnToggleState.UseVisualStyleBackColor = false;
+            this.btnToggleState.Click += new System.EventHandler(this.btnToggleState_Click);
             // 
             // pnlGame
             // 
@@ -506,7 +500,6 @@ namespace Students_vs_teachers
         private System.Windows.Forms.Panel pnlGame;
         private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Button btnToggleState;
-        private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Panel pnlTowers;
         private System.Windows.Forms.Label lblMoney;
