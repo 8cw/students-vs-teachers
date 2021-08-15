@@ -59,5 +59,22 @@ Make it a 32x45 grid (32x32 pixels per grid square) = 1024x1440
 
 ##### Credits:
 
-- Tim Haywood - Sunshine Serenade (Background Music, https://www.youtube.com/watch?v=qLSooDsUqQE)
-- Tower Placement Sound Effect (https://www.youtube.com/watch?v=woxWw37zRVc)
+- Background Music — Tim Haywood - Sunshine Serenade (https://www.youtube.com/watch?v=qLSooDsUqQE)
+- Tower Placement Sound Effect — https://www.youtube.com/watch?v=woxWw37zRVc
+- Tower Attack Sound Effect — mixkit.co
+
+- Relief Teacher — https://www.stuff.co.nz/waikato-times/81260929/zika-virus-and-violence-not-a-concern-for-olympic-volunteer
+- Music Teacher — https://www.hbhs.school.nz/gallery/new-gallery-detail-page-3/#lightbox1-8
+- English Teacher — https://www.hbhs.school.nz/gallery/new-gallery-detail-page-2/#lightbox1-3
+- Technology Teacher — https://www.stuff.co.nz/waikato-times/business/93438545/hamilton-boys-high-school-students-taking-on-building-challenge
+- Science Teacher — Hamilton Boys High School Instagram
+- Dean — Hamilton Boys High School Instagram
+
+- Year 9 Tower — https://www.hbhs.school.nz/gallery/year-9-father-son-breakfast/#lightbox1-5
+- Year 10 Tower — https://www.hbhs.school.nz/school/top-school/academic-pathways/
+- Year 11 Tower — https://www.hbhs.school.nz/gallery/new-gallery-detail-page-3/#lightbox1-2
+- Year 13 Tower — https://www.hbhs.school.nz/gallery/year-13-well-being-day/#lightbox1-8
+- Year 12 Tower — https://www.hbhs.school.nz/gallery/new-gallery-detail-page-3/#lightbox1-2
+- Prefect — https://www.hbhs.school.nz/gallery/year-13-well-being-day/#lightbox1-43
+- Head Boy Tower — https://www.hbhs.school.nz/school/top-school/leadership/
+- Top 6 Tower — https://www.hbhs.school.nz/school/top-school/leadership/

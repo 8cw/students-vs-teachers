@@ -18,6 +18,9 @@ namespace Students_vs_teachers
         {
             new HelpPageInfo { Image = Properties.Resources._01_helpImage },
             new HelpPageInfo { Image = Properties.Resources._02_helpImage },
+            new HelpPageInfo { Image = Properties.Resources._03_helpImage },
+            new HelpPageInfo { Image = Properties.Resources._04_helpImage },
+            new HelpPageInfo { Image = Properties.Resources._05_helpImage },
         };
 
         private FrmHelpConstructor data;
@@ -41,7 +44,7 @@ namespace Students_vs_teachers
 
         private void RefreshHelpImage()
         {
-            BackgroundImage = PageInformation[pageNumber].Image;
+            pbHelpMenu.BackgroundImage = PageInformation[pageNumber].Image;
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]

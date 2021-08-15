@@ -61,7 +61,143 @@ namespace Students_vs_teachers
         /// <summary>
         /// The grids the user cannot place onto. These are for miscellaneous decorations.
         /// </summary>
-        private readonly int[] blacklistedGridIds = { };
+        private readonly int[] blacklistedGridIds =
+        {
+            121, 122, 123, 124, 125,
+            181, 182, 183, 184, 185,
+            241, 242, 243, 244, 245,
+            301, 302, 303, 304, 305,
+
+            7, 8, 9, 10,
+            66, 67, 68, 69, 70,
+            126, 127, 128, 129, 130, 131,
+            186, 187, 188, 189, 190, 191,
+            246, 247, 248, 249, 250, 251,
+            307, 308, 309,
+            368,
+
+            132, 133, 134, 135, 136,
+            192, 193, 194, 195, 196,
+            252, 253, 254, 255, 256,
+            312, 313, 314, 315,
+
+            89, 90, 91, 92,
+            148, 149, 150, 151, 152,
+            208, 209, 210, 211, 212,
+            268, 269, 270, 271, 272,
+            329, 330, 331, 332,
+
+            94, 95, 96, 97,
+            153, 154, 155, 156, 157,
+            213, 214, 215, 216, 217,
+            273, 274, 275, 276, 277,
+            334, 335, 336, 337,
+
+            99, 100, 101,
+            158, 159, 160, 161,
+            218, 219, 220, 221,
+            279, 230,
+
+            44, 45, 46,
+            103, 104, 105, 106, 107,
+            162, 163, 164, 165, 166, 167, 168,
+            222, 223, 224, 225, 226, 227, 228,
+            282, 283, 284, 285, 286, 287, 288, 289,
+            342, 343, 344, 345, 346, 347, 348, 349,
+            402, 403, 404, 405, 406, 407, 408, 409,
+            462, 463, 464, 465, 466, 467, 468,
+            523, 524, 525, 526, 527,
+
+            111, 112, 113, 114,
+            170, 171, 172, 173, 174,
+            230, 231, 232, 233, 234,
+            290, 291, 292, 293, 294,
+            351, 352, 353, 354,
+
+            176, 177, 178, 179,
+            235, 236, 237, 238, 239,
+            295, 296, 297, 298, 299,
+            355, 356, 357, 358, 359,
+
+            // ROW 2
+            423, 424, 425, 426,
+            482, 483, 484, 485, 486,
+            542, 543, 544, 545, 546,
+            603, 604, 605, 606,
+
+            // BELOW MAP
+            660, 661, 662, 663,
+            720, 721, 722, 723,
+            781, 782,
+
+            // ROW #4
+            1149, 1150, 1151,
+            1208, 1209, 1210, 1211, 1212,
+            1268, 1269, 1270, 1271, 1272,
+            1328, 1329, 1330, 1331, 1332,
+            1338, 1389, 1390, 1391, 1392,
+
+            1213, 1214, 1215, 1216,
+            1273, 1274, 1275, 1276,
+            1333, 1334, 1335, 1336,
+
+            1292, 1293, 1294, 1295,
+            1352, 1353, 1354, 1355, 1356,
+            1412, 1413, 1414, 1415, 1416,
+            1472, 1473, 1474, 1475, 1476,
+
+            1190, 1191, 1192,
+            1249, 1250, 1251, 1252, 1253,
+            1309, 1310, 1311, 1312, 1313,
+            1369, 1370, 1371, 1372, 1373,
+            1429, 1430, 1431, 1432,
+
+            // ROW #5
+            1625, 1626, 1627, 1628,
+            1684, 1685, 1686, 1687, 1688, 1689,
+            1744, 1745, 1746, 1747, 1748,
+            1805, 1806, 1807, 1808,
+
+            1392, 1393, 1394,
+            1451, 1452, 1453, 1454, 1455,
+            1511, 1512, 1513, 1514, 1515,
+            1569, 1570, 1571, 1572, 1573, 1574, 1575, 1576,
+            1629, 1630, 1631, 1632, 1633, 1634, 1635, 1636,
+            1689, 1690, 1691, 1692, 1693, 1694, 1695, 1696, 1697,
+            1749, 1750, 1751, 1752, 1753, 1754, 1755, 1756, 1757,
+            1810, 1811, 1812, 1813, 1814, 1815, 1816,
+            1870, 1871, 1872, 1873, 1874, 1875,
+
+            1337, 1338, 1339, 1340,
+            1397, 1398, 1399, 1400,
+            1457, 1458, 1459, 1460, 1461,
+            1517, 1518, 1519, 1520,
+
+            1579, 1580, 1581, 1582,
+            1638, 1639, 1640, 1641, 1642,
+            1671, 1689, 1699, 1700, 1701, 1702, 1703,
+            1758, 1759, 1760, 1761, 1762,
+
+            1585, 1586, 1587, 1588,
+            1644, 1645, 1646, 1647, 1648,
+            1704, 1705, 1706, 1707, 1708,
+            1765, 1766, 1767, 1768,
+            1825, 1826, 1827, 1828,
+
+            1488, 1489, 1490, 1491, 1492,
+            1547, 1548, 1549, 1550, 1551, 1552, 1553,
+            1608, 1609, 1610, 1611,
+
+            1375, 1376, 1377,
+            1435, 1436, 1437,
+            1495, 1496, 1497,
+
+            1613, 1614, 1615, 1616, 1617,
+            1673, 1674, 1675, 1676, 1677,
+            1733, 1734, 1735, 1736, 1737,
+            1793, 1794, 1795, 1796,
+        };
+
         private readonly Dictionary<int, TowerInfo> towerCosts = new Dictionary<int, TowerInfo>()
         {
             { 0, new TowerInfo { Name = "Year 9", Cost = 100, Damage = 50, AttackInterval = 15, TowerRange = 2, TowerImage = Properties.Resources.tower00 } },
@@ -71,7 +207,7 @@ namespace Students_vs_teachers
             { 4, new TowerInfo { Name = "Year 12", Cost = 600, Damage = 500, AttackInterval = 30, TowerRange = 12, TowerImage = Properties.Resources.tower04 } },
             { 5, new TowerInfo { Name = "Prefect", Cost = 600, Damage = 400, AttackInterval = 4, TowerRange = 3, TowerImage = Properties.Resources.tower05 } },
             { 6, new TowerInfo { Name = "Head Boy", Cost = 900, Damage = 1000, AttackInterval = 10, TowerRange = 7, TowerImage = Properties.Resources.tower06 } },
-            { 7, new TowerInfo { Name = "Top 6", Cost = 5000, Damage = 1000000, AttackInterval = 2, TowerRange = 24, TowerImage = Properties.Resources.tower07 } },
+            { 7, new TowerInfo { Name = "Top 6", Cost = 5000, Damage = 1000000, AttackInterval = 3, TowerRange = 24, TowerImage = Properties.Resources.tower07 } },
         };
 
         private readonly Dictionary<int, EnemyInfo> enemyInfo = new Dictionary<int, EnemyInfo>()
@@ -82,7 +218,7 @@ namespace Students_vs_teachers
             { 3, new EnemyInfo { EnemyType = 3, EnemyHealth = 600, EnemyReward = 26, EnemyLives = 30, } },
             { 4, new EnemyInfo { EnemyType = 4, EnemyHealth = 2400, EnemyReward = 50, EnemyLives = 60, } },
             { 5, new EnemyInfo { EnemyType = 5, EnemyHealth = 8000, EnemyReward = 75, EnemyLives = 65, } },
-            { 6, new EnemyInfo { EnemyType = 6, EnemyHealth = 100000000, EnemyReward = 0, EnemyLives = 150, } },
+            { 6, new EnemyInfo { EnemyType = 6, EnemyHealth = 2000000000, EnemyReward = 0, EnemyLives = 150, } },
         };
 
         private readonly EnemyWave[][] enemyRounds = new EnemyWave[][]
@@ -146,12 +282,12 @@ namespace Students_vs_teachers
             "Students from the Dominican Republic report the greatest happiness lives in the world.",
             "Teachers from Switzerland have an average salary of $156,000 NZD per year.",
             "If you work 40 hours a week up until 65 years, you will work just over 90,000 hours in your lifetime.",
-            "The University of Cambridge scams $470,000 NZD out of students for a Doctor of Business degree.",
+            "The University of Cambridge charges $470,000 NZD out of students for a Doctor of Business degree.",
             "Teachers report having real lives outside of school.",
-            "Dental Hygienist is ranked as the worlds happiest job.",
-            "The Hamilton Boys High School cateen is a scam.",
-            "Google base salary for a software engineer is at $272,000 NZD.",
-            "Mr Tucker is the best teacher at HBHS.",
+            "Being a Dental Hygienist is ranked as the worlds happiest job.",
+            "Playing scary and violent video games help children master their fears in real life according to studies.",
+            "Google's base salary for a software engineer is at $272,000 NZD.",
+            "Video games can lessen disruptive behaviors and enhance positive development in ADHD children",
         };
 
         private List<Enemy> activeEnemies = new List<Enemy>();
@@ -168,6 +304,8 @@ namespace Students_vs_teachers
 
         private Timer tmrGameTick = new Timer();
         private Timer tmrTowerPlacement = new Timer();
+
+        private bool gamePlaying = true;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FrmGame"/> class.
@@ -189,7 +327,6 @@ namespace Students_vs_teachers
 
             // add "gameria" font to buttons
             FontLoader.LoadFont(btnToggleState, 12.0F);
-            FontLoader.LoadFont(btnSettings, 12.0F);
             FontLoader.LoadFont(btnHelp, 12.0F);
 
             // add "gameria" font to labels
@@ -215,6 +352,7 @@ namespace Students_vs_teachers
             lblMoney.Text = $"Money: ${money}";
             lblRound.Text = $"Round: 0/{enemyRounds.Length}";
             lblLives.Text = $"Lives: {lives}";
+            lblInfo.Text = educationalMessages[0];
 
             // play background music
             SoundPlayer.BackgroundMusic.Play(this);
@@ -422,13 +560,14 @@ namespace Students_vs_teachers
                 // var gridLabel = new Label();
                 // gridLabel.Size = new Size(GRID_LENGTH, GRID_LENGTH);
                 // gridLabel.Location = gridCoordinate;
-                // gridLabel.Visible = enemyPath.Any((path) => path.TileIds.Contains(i));
+                // gridLabel.Visible = enemyPath.Any((path) => path.TileIds.Contains(i) || blacklistedGridIds.Contains(i)); // enemyPath.Any((path) => path.TileIds.Contains(i));
                 // gridLabel.Text = $"{i}";
 
                 // gridLabel.BackColor = ((i + GetGridCoordinatesForId(i).Y) % 2) == 0 ? Color.Blue : Color.Red;
                 // gridLabel.AutoSize = false;
 
                 // pnlGame.Controls.Add(gridLabel);
+                // gridLabel.BringToFront();
             }
         }
 
@@ -559,28 +698,27 @@ namespace Students_vs_teachers
                             lblRound.Text = $"Round: {roundNum}/{enemyRounds.Length}";
                             lblInfo.Text = educationalMessages[roundNum - 1];
                         }
-                        else if (gameTicks > enemySpawnTicks && activeEnemies.Count == 0 && roundNum == enemyRounds.Length - 1)
-                        {
-                            Visible = false;
-
-                            // player defeated all enemies
-                            tmrGameTick.Stop();
-                            towerPlacing = null;
-                            tmrTowerPlacement.Stop();
-                            pbCancelPlacement.Visible = false;
-                            pbTowerRange.Visible = false;
-
-                            // display win screen
-                            var frmWin = new FrmGameWin();
-                            frmWin.ShowDialog();
-
-                            Dispose();
-                            Close();
-
-                            break;
-                        }
                     }
                 }
+            }
+
+            if (gameTicks > enemySpawnTicks && activeEnemies.Count == 0)
+            {
+                Visible = false;
+
+                // player defeated all enemies
+                tmrGameTick.Stop();
+                towerPlacing = null;
+                tmrTowerPlacement.Stop();
+                pbCancelPlacement.Visible = false;
+                pbTowerRange.Visible = false;
+
+                // display win screen
+                var frmWin = new FrmGameWin();
+                frmWin.ShowDialog();
+
+                Dispose();
+                Close();
             }
 
             // move all enemies
@@ -883,6 +1021,27 @@ namespace Students_vs_teachers
         private void pbCancelPlacement_Click(object sender, EventArgs e)
         {
             CancelPlacemet();
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element should begin with upper-case letter", Justification = "Goes against form naming convention.")]
+        private void btnToggleState_Click(object sender, EventArgs e)
+        {
+            gamePlaying = !gamePlaying;
+            if (gamePlaying)
+            {
+                btnToggleState.Text = "PAUSE";
+                tmrGameTick.Enabled = true;
+            }
+            else
+            {
+                btnToggleState.Text = "PLAY";
+                tmrGameTick.Enabled = false;
+
+                towerPlacing = null;
+                tmrTowerPlacement.Stop();
+                pbCancelPlacement.Visible = false;
+                pbTowerRange.Visible = false;
+            }
         }
     }
 }

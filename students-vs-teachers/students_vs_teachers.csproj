@@ -225,9 +225,18 @@
     <None Include="Resources\teacher0_right.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\pond1.png" />
+    <None Include="Resources\pond2.png" />
+    <None Include="Resources\bush1.png" />
+    <None Include="Resources\stone1.png" />
+    <None Include="Resources\stone2.png" />
+    <None Include="Resources\05_helpImage.png" />
+    <None Include="Resources\04_helpImage.png" />
+    <None Include="Resources\03_helpImage.png" />
     <Content Include="Resources\tower_placement.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\tree.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\placement_cancel.png" />
